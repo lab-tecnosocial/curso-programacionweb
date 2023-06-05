@@ -65,6 +65,7 @@ Selector de ids. Para apuntar a modificar un elemento identificado. Se debe escr
 #resaltado {
 
 }
+```
 
 Selector universal. Para modificar todos los elementos se usa el símbolo de asterisco (`*`):
 
