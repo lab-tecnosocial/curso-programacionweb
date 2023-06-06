@@ -73,6 +73,9 @@ Ejemplos típicos de atributos son:
 <ul class="lista"></ul>
 <ul class="lista"></ul>
 
+<!-- uso de multiples clases -->
+<h2 class="grande interactivo arco-iris">Titulo 2</h2>
+
 <!-- uso de href -->
 <a href="https://www.google.com/">Ir a Google</a>
 
