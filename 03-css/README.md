@@ -206,6 +206,9 @@ Asimismo, se puede definir de forma más granular estos parametros especificando
 
 ![](pizarra/img/box-model2.png)
 
+
+Extra: contorno. Es el contorno luego del margen y se especifica con `outline`. Si bien no pertenece propiamente al box model, suele ser útil.
+
 > Tarea: Averigua qué tipos de valores y formas de uso tienen los parametros que vimos:
 > - width
 > - height
