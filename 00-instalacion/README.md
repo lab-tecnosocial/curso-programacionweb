@@ -45,3 +45,5 @@
     - script.js
   - Divide tu pantalla en dos partes: a la izquierda VSCode y a la derecha el Navegador. Debes ver al mismo tiempo el código y el resultado interpretado de ese código.
 - Sincronizar tu repositorio de código local con GitHub
+
+[Siguiente >>](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/01-introduccion)

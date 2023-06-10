@@ -62,3 +62,5 @@ También hay que diferenciar entre sitios web y apps web:
 - App web: es una aplicación web que se encarga de hacer una funcionalidad más específica que solo mostrar información. Y hasta tratan de emular las funcionalidades de las aplicaciones de escritorio. Aquí se usan tecnologías como React, Angular, Svelte, Vue, Next, etc.
 
 En el presente curso nos enfocamos a las apps web.
+
+[<<Anterior](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/00-instalacion) | [Siguiente >>](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/02-html)

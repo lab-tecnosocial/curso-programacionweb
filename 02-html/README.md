@@ -252,3 +252,5 @@ Los más usados son:
 - `<article>`: para contenido independiente, tipo post o comentarios
 - `<figure>`: para elementos visuales independientes, suele envolver a los `<img>` dandole más información con `<figcaption>`
 - `<footer>`: para la información que va a pie de página
+
+[<<Anterior](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/01-introduccion) | [Siguiente >>](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/03-css)

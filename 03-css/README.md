@@ -168,7 +168,7 @@ Todo elemento en HTML está rodeado de una caja, a veces invisible y otras visib
 
 Esta caja tiene cuatro capas:
 
-![](pizarra/img/box-model1.png)
+![](img/box-model1.png)
 
 Si vamos de adentro para afuera, estas cuatro capas son:
 
@@ -200,11 +200,11 @@ Por ejemplo, si quisieramos crear párrafos con más estilo:
 ```
 Queda por resultado:
 
-![](pizarra/img/ej-box-model.png)
+![](img/ej-box-model.png)
 
 Asimismo, se puede definir de forma más granular estos parametros especificando que lado del cuadrado queremos modificar (top, right, bottom, left):
 
-![](pizarra/img/box-model2.png)
+![](img/box-model2.png)
 
 
 Extra: contorno. Es el contorno luego del margen y se especifica con `outline`. Si bien no pertenece propiamente al box model, suele ser útil.
@@ -215,3 +215,191 @@ Extra: contorno. Es el contorno luego del margen y se especifica con `outline`. 
 > - border
 > - padding
 > - margin
+
+## Un truco útil: usar los divs vacíos como capas
+
+Como vimos usamos los divs principalmente para agrupar elementos HTML. Pero también pueden ser usadas de forma independiente como capas que pueden poseer cierta forma, color y demás estilos CSS que le apliques.
+
+Por defecto, un div vacío no parece mostrar nada. Pero si le agregamos una cierta altura (`height`) y color de fondo (`background-color`), podemos visualizarlo:
+
+```html
+<html>
+  <head>
+    <style>
+      .capa {
+        height: 300px;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="capa"></div>
+  </body>
+</html>
+```
+Resultado:
+
+![](img/resultados-div-vacio.png)
+
+Observar que:
+- El div que usamos no tiene contenido, está vacío.
+- El div tiene una clase para poder acceder al elemento desde CSS
+
+Se pueden agrupar varios divs, y acomodarlos como querrramos. Por ejemplo:
+
+```html
+<html>
+  <head>
+    <style>
+      .capa1 {
+        height: 300px;
+        width: 50%;
+        background-color: blue;
+      }
+      .capa2 {
+        height: 150px;
+        width: 150px;
+        background-color: red;
+      }
+      .capa3 {
+        height: 150px;
+        width: 150px;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="capa1">
+        <div class="capa2"></div>
+        <div class="capa3"></div>
+    </div>
+  </body>
+</html>
+```
+![](img/resultados-divs-vacios.png)
+
+En cuanto a la disposición de los divs, esto siguen el flujo normal (de arriba hacía abajo, alineados a la izquierda). Para poder modificar ese flujo y posicionar los elementos en lugares más interesantes, usaremos las propiedades `display`, `position` y `z-indez` (ver más abajo).
+
+## Degradados (gradientes) y sombras
+Dos decoraciones muy útiles y estéticas son los degradados y las sombras.
+
+
+Los degradados son trancisiones progresivas entre dos o más colores, pueden ser lineales, radiales o cónicas.
+
+Ejemplos básicos de degradados lineales son los siguientes:
+
+```css
+/* un degradado que va de rojo a amarillo, por defecto de arriba hacía abajo */
+background-image: linear-gradient(red, yellow);
+
+/* se puede cambiar la dirección con un parametro textual */
+background-image: linear-gradient(to top right, red, yellow);
+
+/* se puede cambiar la dirección usando grados, donde 0 grados es una linea vertical que va recorrendo hacía la derecha*/
+background-image: linear-gradient(45deg, red, yellow);
+
+/* tambien se puede cambiar los puntos donde los colores empiecen a mezclarse, usando porcentajes */
+background-image: linear-gradient(45deg, red 25%, yellow 75%);
+```
+Resultado del último ejemplo:
+![](img/degradado.png)
+
+Es posible poner más de dos colores y también hacer degradados complicados. Para eso recomendamos usar una herramienta visual como [cssgradient.io](https://cssgradient.io/) y luego de diseñar el degradado, copiar el código CSS y usarlo.
+
+La sombra, por su parte, implica un color que se enmarca alrededor de algún elemento HTML, se desplaza, difumina y dispersa, creando el efecto de sombra.
+
+```html
+<html>
+  <head>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .caja {
+        width: 300px;
+        height: 100px;
+        background-color: teal;
+        box-shadow: 10px 5px black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="caja"></div>
+  </body>
+</html>
+```
+
+![](img/sombra-sencilla.png)
+
+Observar que:
+- El primer valor es el desplazamiento en el eje x (positivo hacía la derecha, negativo hacía la izquierda): 10px
+- El segundo valor es el desplazamiento en el eje y (positivo hacía abajo, negativo hacía arriba): 5px;
+- El terver valor es un color.
+
+Pero también se le puede agregar una difuminación (blur) y extensión (spread), como tercer y cuarto valor, respectivamente:
+
+```css
+box-shadow: 10px 5px 10px 1px black;
+```
+
+Si tienes que hacer una sombra más complicada, puedes usar una herramienta visual como [box-shadow.dev](https://box-shadow.dev/).
+
+## Selectores avanzados
+
+Aquí veremos selectores más avazandos de CSS.
+  
+**Combinando selectores**
+- Lista de selectores (OR): coma. Selecciona todas las combinaciones de selectores y les aplica un mismo bloque de declaraciones
+
+```CSS
+h1, p, ul {
+  color: blue;
+}
+```
+- Combinación de selectores (AND): juntando sin espacio. Aplica el bloque de declaraciones solo a los elementos que contienen todos las etiquetas o clases declaradas:
+
+```CSS
+p.titulo {
+  color: blue;
+}
+
+.titulo.grande {
+  font-size: 40px;
+}
+```
+  
+- Descencendencia de selectores: espacio. Selecciona todos los descendientes de cierto elemento:
+
+```CSS
+h2 p {
+  font-size: 10px;
+}
+```
+
+**Selectores de atributos**
+
+Selecciona los elementos que tienen determinado atributo. Usa corchetes:
+
+```CSS
+[target="_blank"] {
+  font-weight: bold;
+}
+```
+En este caso se seleccionan todos los elementos `<a>` que se abren en una nueva pestaña.
+**Selectores de pseudo-clases**
+
+Permite seleccionar los elementos que tienen cierto estado, como `active`, `focus`, `hover`
+
+```CSS
+img:hover {
+  opacity: 0.5;
+}
+```
+
+Con hover se pueden crear animaciones sencillas pero efectivas, sin necesidad de usar JS.
+
+
+[<<Anterior](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/02-html) | [Siguiente >>]()
