@@ -428,9 +428,29 @@ img:hover {
 }
 ```
 
-Con hover se pueden crear animaciones sencillas pero efectivas, sin necesidad de usar JS.
-
 Una forma divertida de practicar con los selectores CSS es jugando el juego [CSS Diner](https://flukeout.github.io/).
+
+## Animaciones simples con `:hover`, trancisiones y transformaciones
+
+Con la pseudo-clase `:hover` es posible hacer animaciones simples pero efectivas en CSS, sin necesidad de usar JS. Para ello, adicionalmente necesitaremos la propiedad `transition` para hacer los cambios más suaves interpolando los valores intermedios de los cambios. También necesitaremos aprender más de la propiedad `transform` que nos permite hacer transformaciones geométricas básicas como escalar, mover, rotar o sesgar un elemento.
+
+Empezaremos con un ejemplo básico. Queremos que un cuadrado se vuelve en un circulo al hacer pasar el puntero del mouse por él:
+
+```css
+.cuadrado {
+  
+}
+```
+
+## Disposición I: `display` y `position`
+
+- flujo normal por defecto, conducta normal
+
+## Disposición II: `flex`
+
+## Centrar elementos
+
+## Disposición III: `grid`
 
 
 [<<Anterior](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/02-html) | [Siguiente >>]()
