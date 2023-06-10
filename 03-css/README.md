@@ -401,5 +401,7 @@ img:hover {
 
 Con hover se pueden crear animaciones sencillas pero efectivas, sin necesidad de usar JS.
 
+Una forma divertida de practicar con los selectores CSS es jugando el juego [CSS Diner](https://flukeout.github.io/).
+
 
 [<<Anterior](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/02-html) | [Siguiente >>]()
