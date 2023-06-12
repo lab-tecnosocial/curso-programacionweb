@@ -1,5 +1,34 @@
 # CSS
 
+- [CSS](#css)
+  - [Sintaxis](#sintaxis)
+  - [Selectores básicos](#selectores-básicos)
+    - [Selector de clases](#selector-de-clases)
+    - [Selector de ids](#selector-de-ids)
+    - [Selector universal](#selector-universal)
+  - [3 formas de usar CSS](#3-formas-de-usar-css)
+    - [CSS en linea](#css-en-linea)
+    - [CSS interno](#css-interno)
+    - [CSS externo](#css-externo)
+  - [Propiedades básicas de CSS](#propiedades-básicas-de-css)
+    - [Tipografía](#tipografía)
+    - [Color](#color)
+  - [El módelo de caja (*box model*)](#el-módelo-de-caja-box-model)
+  - [Un truco útil: usar los divs vacíos como capas](#un-truco-útil-usar-los-divs-vacíos-como-capas)
+  - [Degradados y sombras](#degradados-y-sombras)
+    - [Degradados](#degradados)
+    - [Sombras](#sombras)
+  - [Selectores avanzados](#selectores-avanzados)
+    - [Combinando selectores](#combinando-selectores)
+    - [Selectores de atributos](#selectores-de-atributos)
+    - [Selectores de pseudo-clases](#selectores-de-pseudo-clases)
+  - [Animaciones simples con `:hover`, trancisiones y transformaciones](#animaciones-simples-con-hover-trancisiones-y-transformaciones)
+  - [Disposición de elementos](#disposición-de-elementos)
+    - [El flujo normal, `position`, `display` y `z-index`](#el-flujo-normal-position-display-y-z-index)
+    - [Disposiciones de una dimensión con `flex`](#disposiciones-de-una-dimensión-con-flex)
+    - [Disposiciones de dos dimensiones con `grid`](#disposiciones-de-dos-dimensiones-con-grid)
+
+
 ## Sintaxis
 
 CSS se escribe de la siguiente forma:
@@ -49,7 +78,7 @@ img {
 
 }
 ```
-**Selector de clases**
+### Selector de clases
 
 Para apuntar a modificar clases enteras. Se debe escribir el nombre de la clase antecedido por un punto (`.`):
 
@@ -61,7 +90,7 @@ Para apuntar a modificar clases enteras. Se debe escribir el nombre de la clase 
 
 }
 ```
-**Selector de ids**
+### Selector de ids
 
 Para apuntar a modificar un elemento identificado. Se debe escribir el nombre del id antecedido por el simbolo de numeral (`#`):
 ```css
@@ -73,7 +102,7 @@ Para apuntar a modificar un elemento identificado. Se debe escribir el nombre de
 }
 ```
 
-**Selector universal**
+### Selector universal
 
 Para modificar todos los elementos HTML se usa el símbolo de asterisco (`*`):
 
@@ -87,7 +116,7 @@ Para modificar todos los elementos HTML se usa el símbolo de asterisco (`*`):
 
 Para usar CSS con HTML se puede proceder de tres formas:
 
-**CSS en linea**
+### CSS en linea
 
 Aquí no se necesita usar selectores, sino que el CSS va directamente dentro de los elementos HTML usando el atributo `style`. La sintaxis de las declaraciones ya mencionada debe respetarse:
 
@@ -95,7 +124,7 @@ Aquí no se necesita usar selectores, sino que el CSS va directamente dentro de 
 <h1 style="font-size: 10px; text-align: center">Titulo principal</h1>
 <p style="color: blue">Este es un párrafo...</p>
 ```
-**CSS interno**
+### CSS interno
 
 Aquí el CSS se pone el CSS separado de los elementos HTML, pero en el mismo archivo, con la etiqueta `<style>` dentro de la etiqueta `<head>`. Aquí se hacen uso de los selectores:
 ```html
@@ -117,7 +146,7 @@ Aquí el CSS se pone el CSS separado de los elementos HTML, pero en el mismo arc
   </body>
 </html>
 ```
-**CSS externo**
+### CSS externo
 
 Aquí el CSS se escribe un archivo aparte, normalmente `style.css`. Para que funcione es necesario enlazar ese archivo desde el archivo HTML, normalmente `index.html`. Aquí se usa la etiqueta `<link>` para enlazar y luego se escribe CSS puro en el archivo `style.css`:
   
@@ -143,11 +172,11 @@ Aquí el CSS se escribe un archivo aparte, normalmente `style.css`. Para que fun
       color: blue;
   }
 ```
-## Propiedades básicas de CSS: tipografía y color
+## Propiedades básicas de CSS
 
 Dos conjuntos de propiedades básicas muy utilizados y básicos en el tema del estilo son: la tipografía y el color.
 
-**Tipografía**
+### Tipografía
 
 Para la tipografía (o fuente) se pueden usar las siguientes las siguientes propiedades básicas:
   - `font-family`: Para cambiar el tipo de fuente. Los básicos son: Arial, Verdana, Tahoma, 'Times New Roman', Georgia, Garamond, 'Courier New'. Pero si se quieren añadir otras fuentes se puede usar [Google Fonts](https://fonts.google.com/).
@@ -164,7 +193,7 @@ También para la tipografía existen unas propiedades más avanzadas como:
 - `letter-spacing`: el espacio entre letras
 - `line-height`: define la altura de las lineas de texto
 
-**Color**
+### Color
 
 Sobre el color tenemos las siguientes propiedades:
 - Color frontal
@@ -307,9 +336,9 @@ Se pueden agrupar varios divs, y acomodarlos como querrramos. Por ejemplo:
 
 En cuanto a la disposición de los divs, esto siguen el flujo normal (de arriba hacía abajo, alineados a la izquierda). Para poder modificar ese flujo y posicionar los elementos en lugares más interesantes, usaremos las propiedades `display`, `position` y `z-indez` (ver más abajo).
 
-## Degradados (gradientes) y sombras
+## Degradados y sombras
 
-**Degradados**
+### Degradados
 
 Los degradados son trancisiones progresivas entre dos o más colores. Pueden ser lineales, radiales o cónicas.
 
@@ -333,7 +362,7 @@ Resultado del último ejemplo:
 
 Es posible poner más de dos colores y también hacer degradados complicados. Para eso recomendamos usar una herramienta visual como [cssgradient.io](https://cssgradient.io/) y luego de diseñar el degradado, copiar el código CSS y usarlo.
 
-**Sombras**
+### Sombras
 
 Implican un color que se enmarca alrededor de algún elemento HTML, se desplaza, difumina y dispersa, creando el efecto de sombra.
 
@@ -380,7 +409,7 @@ Si tienes que hacer una sombra más complicada, puedes usar una herramienta visu
 
 Aquí veremos selectores más avazandos de CSS.
   
-**Combinando selectores**
+### Combinando selectores
 - Lista de selectores (OR): coma. Selecciona todas las combinaciones de selectores y les aplica un mismo bloque de declaraciones
 
 ```CSS
@@ -408,7 +437,7 @@ h2 p {
 }
 ```
 
-**Selectores de atributos**
+### Selectores de atributos
 
 Selecciona los elementos que tienen determinado atributo. Usa corchetes:
 
@@ -418,7 +447,7 @@ Selecciona los elementos que tienen determinado atributo. Usa corchetes:
 }
 ```
 En este caso se seleccionan todos los elementos `<a>` que se abren en una nueva pestaña.
-**Selectores de pseudo-clases**
+### Selectores de pseudo-clases
 
 Permite seleccionar los elementos que tienen cierto estado, como `active`, `focus`, `hover`
 
@@ -434,23 +463,128 @@ Una forma divertida de practicar con los selectores CSS es jugando el juego [CSS
 
 Con la pseudo-clase `:hover` es posible hacer animaciones simples pero efectivas en CSS, sin necesidad de usar JS. Para ello, adicionalmente necesitaremos la propiedad `transition` para hacer los cambios más suaves interpolando los valores intermedios de los cambios. También necesitaremos aprender más de la propiedad `transform` que nos permite hacer transformaciones geométricas básicas como escalar, mover, rotar o sesgar un elemento.
 
-Empezaremos con un ejemplo básico. Queremos que un cuadrado se vuelve en un circulo al hacer pasar el puntero del mouse por él:
+Empezaremos con un ejemplo básico. Queremos que un cuadrado se vuelva en un circulo al hacer pasar el puntero del mouse por él:
 
 ```css
 .cuadrado {
-  
+  height: 200px;
+  width: 200px;
+  background-color: blue;
+}
+
+.cuadrado:hover {
+  border-radius: 50%;
+}
+```
+![](img/hover-simple.gif)
+
+Este código funciona, pero la trancisión entre el cuadrado y el circulo es muy repentina. Para que parezca una animación fluida, necesitamos interpolar los valores intermedios entre los dos estados: de cuadrado a círculo. La propiedad `transition` nos permito eso. Puede recibir de 1 a 4 valores, dependiendo de qué comportamiento querramos lograr:
+
+- Solo especificando la duración: `transition: 1s`, donde la trancisión se aplica a todas las propiedades y recibe una duración que puede recibir segundos (`s`) o milisegundos (`ms`)
+- Especificando la propiedad, duración, función de aceleración y retraso: `transition: width 2s ease 1s`
+
+```css
+.cuadrado {
+  height: 200px;
+  width: 200px;
+  background-color: blue;
+  transition: 500ms;
+}
+
+.cuadrado:hover {
+  border-radius: 50%;
+}
+```
+![](img/hover-transicion.gif)
+
+Observar que la propiedad de trancisión se pone en el elemento inicial y no en el hover.
+
+Ahora bien, para poder hacer animaciones simples más interesantes, podemos hacer uso de la propiedad `transform`, que puede recibir las siguientes funciones:
+- `scale()`: para modificar la escala o tamaño por algun factor (ej. 0.5, 2.0, etc.). Si recibe un valor modifica al elemento proporcionalmente. Si recibe dos valores modifica con el primero el eje X y con el segundo el eje Y.
+- `translateX()`, `translateY()`: para mover el elemento en el eje X o Y. Si se quiere mover en diagonal se puede usar `translate(x, y)` con dos valores.
+- `rotate()`: para rotar según un ángulo (ej. `45deg`)
+- `skew()`: para sesgar con algún ángulo
+
+Por ejemplo:
+```css
+.cuadrado:hover {
+  transform: scale(0.5) rotate(45deg)
+}
+```
+![](img/transform-ejemplo.gif)
+
+## Disposición de elementos
+
+### El flujo normal, `position`, `display` y `z-index`
+
+Para poder hacer disposiciones (layouts) de elementos más interesantes, primero debemos entender cuál es el posicionamiento (`position`) y visualización (`display`) que por defecto hace CSS, para luego modificarlo. A esta visualización se llama el "flujo normal", que consiste en:
+- Todos los elementos llevan por defecto la posición `position: static`
+- Donde los elementos bloque (que llevan `display: block`), como es el caso de `<h1>`, `<p>`, `<div>`, `<section>`, se distribuyen de arriba hacía abajo, ocupando el 100% del ancho, a menos que se especifique un ancho, en cuyo caso se reduce el mismo y se alinea a la izquierda.
+- Y los elementos 'en linea' (que llevan `display: inline`), como es el caso de `<a>`, `<span>`, `<img>`, se distribuyen de izquierda a derecha, ocupando solo el espacio que necesitan, 
+
+![](img/normal-flow.png)
+
+Una vez entendido lo anterior, entonces podemos modificar el posicionamiento y la visualización de los elementos cambiando esas propiedades:
+- Modificando `display`
+  - Podemos hacer que el elemento desaparezca con: `display: none`
+  - Podemos alinear automáticamente los elementos en una dimensión (horizontal o vertical) desde un elemento contenedor con: `display: flex`. O alinearlos automáticamente en una cuadricula de dos dimensiones con `display: grid` (ver más abajo)
+- Modificando `position`:
+  - Podemos modificar la posición del elemento relativo a donde se encuentra con `position: relative` y luego usando las propieades `top`, `bottom`, `left` o `right` para empujarlo usando pixeles o porcentajes:
+
+```css
+.cuadrado {
+  background-color: blue;
+  position: relative;
+  top: 50px;  /* empujarlo 50px desde arriba */
+}
+```
+  - Podemos modificar el elemento sacandolo del flujo normal y posicionarlo en relación con su elemento padre:
+
+```css
+.cuadrado {
+  background-color: blue;
+  position: absolute;
+  top: 50px;
+  left: 50px;
 }
 ```
 
-## Disposición I: `display` y `position`
+También existen los valores `fixed` para ubicarlo en lugar fijo de la pantalla sin importar el scroll y `sticky` que permite cierto scroll y luego 'pega' en algun lugar de la pantalla.
 
-- flujo normal por defecto, conducta normal
+Una vez que apilemos varias capas de elementos HTML, en algún momento podemos querer cambiar su orden (cuán atrás o adelante está el elemento), tal como se hace en las capas de Photoshop o Illustrator. Para ello podemos usar la propiedad `z-index` que puede ser entendido como la profundidad del elemento, entre un número más bajo más bajo, y entre un número más alto más arriba.
+### Disposiciones de una dimensión con `flex`
 
-## Disposición II: `flex`
+Con flex podemos alinear facilmente elementos que están en una "fila" o una "columna". En vez de hacer el posicionamiento manualmente con la propiedad `position`, podemos aprovechar `flex` para que la alineación se realice de forma más automática, y que incluso se ajustará por sí mismo si el tamaño de la pantalla cambia.
 
-## Centrar elementos
+Para ello debemos diferenciar entre:
+- El contenedor flex: normalmente un `<div>` u otro elemento padre
+- Los elementos flex: todos los elementos que están dentro del contenedor
 
-## Disposición III: `grid`
+Las propiedades que veremos para que funcionen, a veces se especifican en el contenedor y otras en los elementos:
+
+```css
+.contenedor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.elementos {
+  
+}
+```
+Observar que:
+- La declaración `display: flex` va el contenedor. Una vez se declara esta regla, los elementos pasan del flujo normal de bloque a estar de forma horizontal.
+- Así tambien van en el contenedor `justify-content` que indica cómo se debe alinear en el eje horizontal y `align-items` que indica como se debe alinear en el eje vertical.
+- Con ese código se puede lograr centrar un elemento tanto horizontal como verticalmente.
+
+`justify-content` puede recibir además los siguientes valores y dar los siguientes resultados:
+
+![](img/justify-content.webp)
+
+Mientras que `align-items`:
+
+![](img/align-items.webp)
+### Disposiciones de dos dimensiones con `grid`
 
 
 [<<Anterior](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/02-html) | [Siguiente >>]()

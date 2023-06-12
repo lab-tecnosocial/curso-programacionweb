@@ -1,4 +1,12 @@
 # HTML
+
+- [HTML](#html)
+  - [Elementos HTML](#elementos-html)
+  - [El arbol HTML](#el-arbol-html)
+  - [Elementos para metadatos en `<head>`](#elementos-para-metadatos-en-head)
+  - [Agrupar elementos: divs y spans](#agrupar-elementos-divs-y-spans)
+  - [Etiquetas semánticas](#etiquetas-semánticas)
+
 ## Elementos HTML
 
 Escribir en HTML implica escribir elementos HTML. Un elemento HTML tiene la siguiente sintaxis básica:
@@ -143,7 +151,7 @@ Ya en `<body>` podemos crear un sub-arbol de diversas maneras, por ejemplo si hi
 </html>
 ```
 
-> ## Tarea 1
+> ## Tarea
 > - Agregar una imagen suya
 > - Agregar enlace a sus redes sociales, pero con imagenes de las redes en vez de solo texto y deben abrir el enlace en una nueva pestaña
 > - Agregar una tabla  con la primera columna que diga sus habilidades y la segunda su calificación del 1 al 10
