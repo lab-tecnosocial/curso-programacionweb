@@ -14,6 +14,7 @@
     - [Tipografía](#tipografía)
     - [Color](#color)
   - [El módelo de caja (*box model*)](#el-módelo-de-caja-box-model)
+  - [Unidades absolutas y relativas](#unidades-absolutas-y-relativas)
   - [Un truco útil: usar los divs vacíos como capas](#un-truco-útil-usar-los-divs-vacíos-como-capas)
   - [Degradados y sombras](#degradados-y-sombras)
     - [Degradados](#degradados)
@@ -272,6 +273,20 @@ Asimismo, se puede definir de forma más granular estos parametros especificando
 > - padding
 > - margin
 
+## Unidades absolutas y relativas
+
+Para especificar tamaños en el modelo de caja y otros, hasta ahora hemos utilizado solo pixeles (`px`), pero ahora veremos que es posible usar otras unidades de medida, diferenciando entre unidades absolutes y relativas:
+- Unidades absolutas: Especifican un tamaño fijo de los elementos. El problema es que los dispositivos tienen diferentes resoluciones (cantidad de pixeles), que hace que estas unidades no se adapten del todo bien a diferentes resoluciones (celular, tablet, computadora, smart tv, etc.)
+  - `px`: se usa para pantallas, ej. `10px`
+  - `cm` y `mm`: se usan más para impresiones
+- Unidades relativas: Especifican un tamaño en relación a otro elemento, lo que hace que se adapten mejor a diferentes tamaños de pantallas.
+  - `em` y `rem`: relativo al tamaño del elemento ya definido (ej. `0.5`, `2`) en el caso del `em` y al tamaño de elemento de la raiz en el caso de `rem`
+  - `ch`: relativo al ancho del 0 de la tipografía utilizada
+  - `%`: relativo al tamaño del elemento padre
+  - `vh` y `vw`: *viewport height* y *viewport width* calculan el porcentaje total del alto y ancho de la pantalla, respectivamente (ej. `10vh`, `50vw`)
+
+Un truco útil es usar `100vh` en el alto (`height`) del `body` o de otro elemento para hacer que ocupe el 100% de la altura de la pantalla.
+
 ## Un truco útil: usar los divs vacíos como capas
 
 Como vimos usamos los divs principalmente para agrupar elementos HTML. Pero también pueden ser usadas de forma independiente como capas que pueden poseer cierta forma, color y demás estilos CSS que le apliques.
@@ -501,7 +516,7 @@ Observar que la propiedad de trancisión se pone en el elemento inicial y no en 
 
 Ahora bien, para poder hacer animaciones simples más interesantes, podemos hacer uso de la propiedad `transform`, que puede recibir las siguientes funciones:
 - `scale()`: para modificar la escala o tamaño por algun factor (ej. 0.5, 2.0, etc.). Si recibe un valor modifica al elemento proporcionalmente. Si recibe dos valores modifica con el primero el eje X y con el segundo el eje Y.
-- `translateX()`, `translateY()`: para mover el elemento en el eje X o Y. Si se quiere mover en diagonal se puede usar `translate(x, y)` con dos valores.
+- `translateX()`, `translateY()`: para mover el elemento en el eje X o Y. Si se quiere mover en diagonal se puede usar `translate(x, y)` con dos valores. En CSS, en el eje X para ir hacía la derecha se usan valores positivos y negativos para ir a la izquierda; en el eje Y, para ir hacía abajo se usan valores positivos y negativos para ir arriba. La coordenada (0, 0) es el punto de origen donde está el elemento.
 - `rotate()`: para rotar según un ángulo (ej. `45deg`)
 - `skew()`: para sesgar con algún ángulo
 
@@ -529,7 +544,15 @@ Una vez entendido lo anterior, entonces podemos modificar el posicionamiento y l
   - Podemos hacer que el elemento desaparezca con: `display: none`
   - Podemos alinear automáticamente los elementos en una dimensión (horizontal o vertical) desde un elemento contenedor con: `display: flex`. O alinearlos automáticamente en una cuadricula de dos dimensiones con `display: grid` (ver más abajo)
 - Modificando `position`:
-  - Podemos modificar la posición del elemento relativo a donde se encuentra con `position: relative` y luego usando las propieades `top`, `bottom`, `left` o `right` para empujarlo usando pixeles o porcentajes:
+  - Podemos modificar la posición del elemento relativo a donde se encuentra con `position: relative`
+  - Podemos modificar la posición del elemento en relación al primer elemento padre que no sea `static` con `position: absolute`
+  - Luego usando las propiedades `top`, `bottom`, `left` o `right` especificamos hacía donde queremos moverlo usando unidades absolutas o relativas
+
+Para diferenciar bien entre las posiciones `absolute` y `relative`, puedes guiarte con el siguiente diagrama:
+
+![](img/relative-vs-absolute.png)
+
+Observa que la referencia de qué es `top`, `bottom`, `left` y `right` varía. Y ser verían de la siguiente forma:
 
 ```css
 .cuadrado {
@@ -538,7 +561,6 @@ Una vez entendido lo anterior, entonces podemos modificar el posicionamiento y l
   top: 50px;  /* empujarlo 50px desde arriba */
 }
 ```
-  - Podemos modificar el elemento sacandolo del flujo normal y posicionarlo en relación con su elemento padre:
 
 ```css
 .cuadrado {
@@ -548,10 +570,30 @@ Una vez entendido lo anterior, entonces podemos modificar el posicionamiento y l
   left: 50px;
 }
 ```
+Dado que un elemento cualquier puede tener muchos padres, si uno quisiera cambiar la referencia de a qué elemento especificamente nos referimos, entonces simplemente es cosa de asegurarnos de que ese padre tenga un `position` diferente de `static`. Normalmente lo volveremos `relative`:
 
-También existen los valores `fixed` para ubicarlo en lugar fijo de la pantalla sin importar el scroll y `sticky` que permite cierto scroll y luego 'pega' en algun lugar de la pantalla.
+```css
+.abuelo{
+  ...
+}
 
-Una vez que apilemos varias capas de elementos HTML, en algún momento podemos querer cambiar su orden (cuán atrás o adelante está el elemento), tal como se hace en las capas de Photoshop o Illustrator. Para ello podemos usar la propiedad `z-index` que puede ser entendido como la profundidad del elemento, entre un número más bajo más bajo, y entre un número más alto más arriba.
+.padre{
+  position: relative;
+}
+
+.hijo{
+  position: absolute:
+  top: 50%:
+  left: 50%;
+}
+```
+De esta forma esquivaremos al elemento 'abuelo' y el 'hijo' se movera a partir del 'padre'.
+
+También para la propiedad `position` existen los valores `fixed` para ubicarlo en lugar fijo de la pantalla sin importar el scroll y `sticky` que permite cierto scroll y luego podmemos 'pegarlo' en algun lugar de la pantalla.
+
+Una vez que apilemos varias capas de elementos HTML, en algún momento podemos querer cambiar su orden (cuán atrás o adelante está el elemento), tal como se hace en las capas de Photoshop o Illustrator. Para ello podemos usar la propiedad `z-index` que puede ser entendido como la profundidad del elemento, entre un número más bajo más bajo, y entre un número más alto más arriba:
+
+![](img/z-index.png)
 ### Disposiciones de una dimensión con `flex`
 
 Con flex podemos alinear facilmente elementos que están en una "fila" o una "columna". En vez de hacer el posicionamiento manualmente con la propiedad `position`, podemos aprovechar `flex` para que la alineación se realice de forma más automática, y que incluso se ajustará por sí mismo si el tamaño de la pantalla cambia.
