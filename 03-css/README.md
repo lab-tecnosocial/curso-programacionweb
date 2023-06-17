@@ -535,7 +535,7 @@ Por ejemplo:
 Para poder hacer disposiciones (layouts) de elementos más interesantes, primero debemos entender cuál es el posicionamiento (`position`) y visualización (`display`) que por defecto hace CSS, para luego modificarlo. A esta visualización se llama el "flujo normal", que consiste en:
 - Todos los elementos llevan por defecto la posición `position: static`
 - Donde los elementos bloque (que llevan `display: block`), como es el caso de `<h1>`, `<p>`, `<div>`, `<section>`, se distribuyen de arriba hacía abajo, ocupando el 100% del ancho, a menos que se especifique un ancho, en cuyo caso se reduce el mismo y se alinea a la izquierda.
-- Y los elementos 'en linea' (que llevan `display: inline`), como es el caso de `<a>`, `<span>`, `<img>`, se distribuyen de izquierda a derecha, ocupando solo el espacio que necesitan, 
+- Y los elementos 'en linea' (que llevan `display: inline`), como es el caso de `<a>`, `<span>`, `<img>`, `<button>`, se distribuyen de izquierda a derecha, ocupando solo el espacio que necesitan, 
 
 ![](img/normal-flow.png)
 
