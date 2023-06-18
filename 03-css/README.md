@@ -67,16 +67,16 @@ Para apuntar a modificar etiquetas simplemente debemos anotar el nombre de la re
 
 ```css
 h1 {
-
+  ...
 }
 p {
-
+  ...
 }
 a {
-
+  ...
 }
 img {
-
+  ...
 }
 ```
 ### Selector de clases
@@ -96,10 +96,10 @@ Para apuntar a modificar clases enteras. Se debe escribir el nombre de la clase 
 Para apuntar a modificar un elemento identificado. Se debe escribir el nombre del id antecedido por el simbolo de numeral (`#`):
 ```css
 #titulo-principal {
-
+  ...
 }
 #resaltado {
-
+  ...
 }
 ```
 
@@ -535,7 +535,7 @@ Por ejemplo:
 Para poder hacer disposiciones (layouts) de elementos más interesantes, primero debemos entender cuál es el posicionamiento (`position`) y visualización (`display`) que por defecto hace CSS, para luego modificarlo. A esta visualización se llama el "flujo normal", que consiste en:
 - Todos los elementos llevan por defecto la posición `position: static`
 - Donde los elementos bloque (que llevan `display: block`), como es el caso de `<h1>`, `<p>`, `<div>`, `<section>`, se distribuyen de arriba hacía abajo, ocupando el 100% del ancho, a menos que se especifique un ancho, en cuyo caso se reduce el mismo y se alinea a la izquierda.
-- Y los elementos 'en linea' (que llevan `display: inline`), como es el caso de `<a>`, `<span>`, `<img>`, `<button>`, se distribuyen de izquierda a derecha, ocupando solo el espacio que necesitan, 
+- Y los elementos 'en linea' (que llevan `display: inline`), como es el caso de `<a>`, `<span>`, `<img>`, `<button>`, se distribuyen de izquierda a derecha, ocupando solo el espacio que necesitan. Si queremos que estos elementos se comporten como bloques debemos cambiar su propiedad de `display: inline` a `display: block`. 
 
 ![](img/normal-flow.png)
 
@@ -589,6 +589,10 @@ Dado que un elemento cualquier puede tener muchos padres, si uno quisiera cambia
 ```
 De esta forma esquivaremos al elemento 'abuelo' y el 'hijo' se movera a partir del 'padre'.
 
+Con ese mismo patrón, usando la combinación de `absolute` con `relative`, es posible superponer varios elementos HTML. Por ejemplo:
+
+![](img/elementos-apilados.png)
+
 También para la propiedad `position` existen los valores `fixed` para ubicarlo en lugar fijo de la pantalla sin importar el scroll y `sticky` que permite cierto scroll y luego podmemos 'pegarlo' en algun lugar de la pantalla.
 
 Una vez que apilemos varias capas de elementos HTML, en algún momento podemos querer cambiar su orden (cuán atrás o adelante está el elemento), tal como se hace en las capas de Photoshop o Illustrator. Para ello podemos usar la propiedad `z-index` que puede ser entendido como la profundidad del elemento, entre un número más bajo más bajo, y entre un número más alto más arriba:
@@ -596,7 +600,7 @@ Una vez que apilemos varias capas de elementos HTML, en algún momento podemos q
 ![](img/z-index.png)
 ### Disposiciones de una dimensión con `flex`
 
-Con flex podemos alinear facilmente elementos que están en una "fila" o una "columna". En vez de hacer el posicionamiento manualmente con la propiedad `position`, podemos aprovechar `flex` para que la alineación se realice de forma más automática, y que incluso se ajustará por sí mismo si el tamaño de la pantalla cambia.
+Con flex podemos alinear facilmente elementos que están en una "fila" o una "columna". En vez de hacer el posicionamiento manualmente con la propiedad `position` y `top`, `bottom`, `right` y `left`, podemos aprovechar `flex` para que la alineación se realice de forma más automática, y que incluso se ajustará por sí mismo si el tamaño de la pantalla cambia (diseño 'responsivo').
 
 Para ello debemos diferenciar entre:
 - El contenedor flex: normalmente un `<div>` u otro elemento padre
@@ -611,7 +615,7 @@ Las propiedades que veremos para que funcionen, a veces se especifican en el con
   align-items: center;
 }
 .elementos {
-  
+  ...
 }
 ```
 Observar que:
@@ -626,7 +630,71 @@ Observar que:
 Mientras que `align-items`:
 
 ![](img/align-items.webp)
+
+Otra propiedades útiles de flex son:
+- Para el contenedor flex
+  - `flex-direction`: para especificar la dirección que puede ser `row|row-reverse|column|column-reverse`
+  - `flex-wrap`: para controlar si los elementos se quedan en la misma linea o pasan a otras: `wrap|wrap-reverse|no-wrap|`. Por defecto está en `no-wrap`.
+- Para los elementos flex
+  - `flex`: que permite especificar cuánto está permitido que crezca, se reduzca y su base. Por ejemplo: `flex: 2 1 100px`
 ### Disposiciones de dos dimensiones con `grid`
 
+Con `grid`, a diferencia de `flex`, podemos controlar no solamente filas y columnas, sino grillas o cuadriculas enteras, que puede servir tanto para elementos especificos que requieran una cuadricula o para estructurar todo el sitio web entero.
+
+Al igual que con flex, hay algunas propiedades que se deben especificar en el contenedor y otras en los elementos. Los básicos son:
+
+- Contenedor grid:
+  - `display: grid`: para especificar que queremos una cuadricula
+  - `grid-template-column` o `grid-template-row`: para especificar el número y tamaño de las filas o columnas que queremos. Podemos usar unidades absolutas como los pixeles o una nueva unidad relativa fraccionaria (`fr`) si queremos ocupar todo el espacio disponible. Ej. `grid-template-column: 200px 200px` para una cuadricula de 2 columnas de 200px o  `grid-template-column: 1fr 1fr`
+  - `gap`: para dar espacio entre las filas y columnas. Ej. `gap: 5px 10px`.
+- Elementos grid:
+  - `grid-column`: para aumentar el numero de cuadros hacía las columnas que queremos que ocupe el elemento. Ej. `grid-column: 1 / 3` (el ultimo número debe ser uno demás)
+  - `grid-row`: para aumentar el numero de cuadros hacía las filas que queremos que ocupe el elemento. Ej. `grid-row: 1 / 3`
+  - `grid-area`: para especificar tanto el aumento en fila y columna al mismo tiempo. Ej. `grid-area: 2 / 3 / 4 / span 5`
+
+
+```html
+<html>
+
+  <head>
+    <style>
+     .grilla {
+      width: 400px;
+      height: 500px;
+      display: grid;
+      grid-template-column: 100px 100px;
+      gap: 10px 10px;
+    }
+
+    .caja {
+      background-color: dodgerblue;
+      text-align: center;
+      color: white;
+      border-radius: 10px;
+    }
+      
+    .a {
+        grid-column: 1 / 3;
+    }
+    </style>
+  </head>
+
+  <body>
+    <div class="grilla">
+      <div class="caja a">A</div>
+      <div class="caja b">B</div>
+      <div class="caja c">C</div>
+      <div class="caja d">D</div>
+      <div class="caja e">E</div>
+      <div class="caja f">F</div>
+    </div>
+  </body>
+
+</html>
+```
+
+Que da por resultado:
+
+![](img/ejemplo-grid.png)
 
 [<<Anterior](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/02-html) | [Siguiente >>]()

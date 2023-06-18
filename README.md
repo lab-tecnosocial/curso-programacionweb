@@ -1,7 +1,9 @@
 # curso-programacionweb
 Curso de programación web básica
 
-Contenido
+Facilitador: [Alex Ojeda Copa](https://github.com/alex-roc)
+
+## Contenido
 
 - [Requisitos, instalación y configuración](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/00-instalacion)
 - [Introducción](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/01-introduccion)
