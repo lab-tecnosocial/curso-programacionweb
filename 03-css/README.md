@@ -662,7 +662,7 @@ Al igual que con flex, hay algunas propiedades que se deben especificar en el co
       width: 400px;
       height: 500px;
       display: grid;
-      grid-template-column: 100px 100px;
+      grid-template-columns: 100px 100px;
       gap: 10px 10px;
     }
 
