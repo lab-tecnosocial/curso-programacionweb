@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+#seccion-1 {
+    background-color: aqua;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#seccion-2 {
+    background-color: blueviolet;
+    /* height: 100vh; */
+    font-size: 4rem;
+    display: flex;
+}
+
+.tarjeta {
+    border: 2px solid white;
+    width: 33.3%;
+}
+
+#seccion-3 {
+    background-color: darkgreen;
+    height: 100vh;
+}
+
+img {
+    object-fit: contain;
+}
+
+@media (max-width: 480px) {
+    #seccion-2 {
+        background-color: red;
+        height: auto;
+        font-size: 12px;
+    }
+
+    #seccion-2 {
+        display: block
+    }
+
+    .tarjeta {
+        width: 100%;
+        /* height: 33.3vh; */
+    }
+
+
+}

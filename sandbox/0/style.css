@@ -1,0 +1,58 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor {
+    position: relative;
+    border: solid 10px red;
+    width: 500px;
+    height: 500px;
+}
+
+.circulos {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: chocolate;
+    border-radius: 50%;
+    transition: 500ms;
+}
+
+.circulo1 {
+    top: 5;
+    left: 5;
+}
+
+.circulo2 {
+    top: 5;
+    right: 5;
+}
+
+.circulo3 {
+    bottom: 5;
+    right: 5;
+
+}
+
+.circulo4 {
+    bottom: 5;
+    left: 5;
+}
+
+.circulo1:hover {
+    transform: translate(200px, 200px)
+}
+
+.circulo2:hover {
+    transform: translate(-200px, 200px)
+}
+
+.circulo3:hover {
+    transform: translate(-200px, -200px)
+}
+
+.circulo4:hover {
+    transform: translate(200px, -200px)
+}

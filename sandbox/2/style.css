@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    background-color: brown;
+    height: 10vh;
+    z-index: 2;
+}
+
+li {
+    list-style-type: none;
+    display: inline;
+    color: white;
+}
+
+.hero {
+    position: relative;
+    background-color: aquamarine;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-contenido {
+    position: absolute;
+}
+
+.hero-contenido p {
+    text-align: center;
+}
+
+.hero-contenido button {
+    display: block;
+    margin-inline: auto;
+}
+
+.grilla {
+    height: 100vh;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    gap: 10px;
+}
+
+.grilla div {
+    /* width: 100px;
+    height: 100px; */
+    background-color: blueviolet;
+    color: white;
+    margin: 5px;
+}

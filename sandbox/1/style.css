@@ -1,0 +1,8 @@
+body {
+    border: solid 2px red;
+    height: 100vh;
+}
+
+p {
+    font-size: 1em;
+}

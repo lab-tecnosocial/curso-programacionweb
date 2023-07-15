@@ -1,0 +1,54 @@
+:root {
+    /* paleta de colores */
+    /* tipografia */
+    /* sombras */
+    --mi-color: green;
+    --mi-fuente: Arial;
+    --azul: rgb(10, 10, 136);
+
+}
+
+body {
+    background-color: azure;
+}
+
+.contenedor {
+
+    background-color: blueviolet;
+    height: 400px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100px 100px;
+    gap: 5px;
+}
+
+.hijo {
+
+    background-color: black;
+    width: 100px;
+    /* height: 100px; */
+    margin: 2px;
+    color: white;
+}
+
+
+
+.hijo1 {
+    background-color: var(--mi-color);
+}
+
+.hijo2 {
+    background-color: var(--mi-color);
+
+}
+
+.hijo5 {
+    background-color: var(--mi-color);
+}
+
+.hijo6 {
+    --mi-color: cyan;
+    font-family: var(--mi-fuente);
+    background-color: var(--mi-color);
+
+}

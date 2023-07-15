@@ -1,0 +1,32 @@
+[
+    {
+        "nombre": "Alex Ojeda",
+        "edad": 36,
+        "mascotas": [
+            {
+                "especie": "Gato",
+                "nombre": "Misifuz"
+            }
+        ]
+    },
+    {
+        "nombre": "Nicaela Leon",
+        "edad": 25,
+        "mascotas": [
+            {
+                "especie": "Gato",
+                "nombre": "Angel"
+            }
+        ]
+    },
+    {
+        "nombre": "Patricia Delgadillo",
+        "edad": 20,
+        "mascotas": [
+            {
+                "especie": "Perro",
+                "nombre": "Bobby"
+            }
+        ]
+    }
+]
