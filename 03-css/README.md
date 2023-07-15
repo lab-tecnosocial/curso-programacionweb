@@ -28,6 +28,9 @@
     - [El flujo normal, `position`, `display` y `z-index`](#el-flujo-normal-position-display-y-z-index)
     - [Disposiciones de una dimensión con `flex`](#disposiciones-de-una-dimensión-con-flex)
     - [Disposiciones de dos dimensiones con `grid`](#disposiciones-de-dos-dimensiones-con-grid)
+  - [Diseño responsivo con 'media queries'](#diseño-responsivo-con-media-queries)
+  - [Variables CSS](#variables-css)
+  - [Frameworks de CSS](#frameworks-de-css)
 
 
 ## Sintaxis
@@ -696,5 +699,74 @@ Al igual que con flex, hay algunas propiedades que se deben especificar en el co
 Que da por resultado:
 
 ![](img/ejemplo-grid.png)
+
+## Diseño responsivo con 'media queries'
+El desarrollo web antes solo se enfocaba en que tu página, sitio o app se viera bien en las pantallas de computadora. Sin embargo, ahora la mayoría de las personas acceden a la web mediante sus celulares, que tienen una pantalla mucho más pequeña, por lo que el diseño de tu web debe ser adaptativo (*responsive*).Si bien usando unidades relativas y disposiciones modernas como flex y grid se puede lograr en parte un diseño responsivo, se necesitan también otras técnicas. Aquí veremos los 'media queries'.
+
+Los 'media queries' (consulta del medio), nos permiten consultar sobre el tamaño, resolución, orientación de la pantalla, entre otros. Particularmente es útil consultar ancho de la pantalla (`max-width` o `min-width`) y según eso se puede ejecutar un código especifico para ciertos tamaños de pantalla.
+
+```css
+p {
+  font-size: 14px;
+}
+@media (max-width: 480px){
+  p {
+    font-size: 11px;
+  }
+}
+```
+Observar que:
+- Con a etiqueta de párrafo se declara un tamaño de letra de 14px que sera el tamaño por defecto.
+- Sin embargo, si el ancho de la pantalla es hasta máximo 480px, entonces se reduce su tamaño a 11px.
+- Se pueden agregar más declaraciones CSS dentro del bloque del media query.
+
+Los valores de los anchos típicos para cambiar el diseño se llaman *breakpoints* y tipicamente son los siguientes:
+- Celular: 480px
+- Tablet: 768px
+- Computadora: 1080px
+
+Ahora bien hay dos estrategias para crear diseños responsivos:
+- Desktop first: donde se diseña primero para pantallas de computadoras de escritorio (multiples columnas) y luego se ajustan para los celulares, usando principalmente `max-width`.
+- Mobile first: donde se diseña primero para las pantallas de celulares (una columna) y luego se ajustan para las pantallas grandes usando principilmente `min-width`.
+## Variables CSS
+CSS si bien no es un lenguaje de programación completo, tiene algunas características útiles de los lenguajes de programación, como son las variables o 'custom properties'. La utilidad de las variables están en que nos permite tener mayor control, reusabilidad y evitar las repeticiones con los valores.
+
+Las variables son como contenedores que nos permiten almacenar, usar y actualizar valores. Tienen un ciclo de vida básico:
+- Declaración en un determinado contexto (*scope*), normalmente en la pseudo clase `:root` si se quiere que la variable sea global, que es equivalmente al elemento `html` pero con mayor prioridad:
+  ```css
+  :root {
+    --mi-color: blue;
+  }
+  ```
+- Uso
+  ```css
+  h2 {
+    color: var(--mi-color);
+  }
+
+  .caja {
+    color: var(--mi-color)
+  }
+
+  .seccion-diferente {
+    --mi-color: yellow;
+    color: var(--mi-color);
+  }
+  ```
+  
+También es posible redefinir el valor de la variable solo para ciertos contextos (*scopes*):
+
+## Frameworks de CSS
+Si bien hasta ahora hemos aprendido a usar CSS de forma específica, también podemos usar 'frameworks', que son  marcos de referencia preparados que nos facilitan el trabajo, y que poseen  un sistema de diseño coherente y declaraciones CSS ya escritas por otros.
+
+Entonces lo que nos queda hacer es:
+- Importar ese framework (sea con una URL pública o con un archivo local usando el elemento `<link>`)
+- Leer la documentación de los componentes y clases
+- Usar las clases que nos proporcionan en nuestros elementos HTML apropiadamente
+
+Algunos de los frameworks CSS más populares son:
+- https://getbootstrap.com/
+- https://materializecss.com/
+- https://tailwindcss.com/
 
 [<<Anterior](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/02-html) | [Siguiente >>]()
