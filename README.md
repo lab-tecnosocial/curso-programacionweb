@@ -9,4 +9,4 @@ Facilitador: [Alex Ojeda Copa](https://github.com/alex-roc)
 - [Introducción](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/01-introduccion)
 - [HTML](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/02-html)
 - [CSS](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/03-css)
-- JS
+- [JS](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/04-js)
