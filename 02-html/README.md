@@ -2,7 +2,7 @@
 
 - [HTML](#html)
   - [Elementos HTML](#elementos-html)
-  - [El arbol HTML](#el-arbol-html)
+  - [El árbol HTML](#el-árbol-html)
   - [Elementos para metadatos en `<head>`](#elementos-para-metadatos-en-head)
   - [Agrupar elementos: divs y spans](#agrupar-elementos-divs-y-spans)
   - [Etiquetas semánticas](#etiquetas-semánticas)
@@ -16,10 +16,10 @@ Escribir en HTML implica escribir elementos HTML. Un elemento HTML tiene la sigu
 ```
 Observar que:
 - Existen etiquetas
-  - Las etiquetas se suelen usan en pares
+  - Las etiquetas se suelen usar en pares
     - Hay una etiqueta de apertura con el nombre de la etiqueta
     - Hay una etiqueta de cierre con una barra `\` y el nombre de la etiqueta
-  - Las etiquetas se envuelven en parentesis angulares: `<` y `>`, también conocidos como los símbolos de `menor que` y `mayor que`
+  - Las etiquetas se envuelven en paréntesis angulares: `<` y `>`, también conocidos como los símbolos de `menor que` y `mayor que`
 - Existe un contenido
   - Que suele ser texto normal o también como veremos más adelante puede ser otro elemento HTML
   - Que está envuelto o anidado por las etiquetas
@@ -28,14 +28,14 @@ Ejemplos típicos de etiquetas son:
 - `<h1>`, `<h2>`, `<h3>` para encabezados de diferentes niveles
 - `<p>`: para marcar párrafos
 - `<a>`: para marcar enlaces
-- `<img>`: para mostrar imagenes. Este es una etiqueta especial pues no tiene etiqueta de cierre, a diferencia de los anteriores.
+- `<img>`: para mostrar imágenes. Esta es una etiqueta especial pues no tiene etiqueta de cierre. Es una etiqueta "autocerrada"
 
 ```html
 <h1>Soy un título de primer nivel</h1>
 <p>Soy un párrafo</p>
 ```
 
-Asimismo los elementos HTML pueden tener atributos, que proveen información adicional a los elementos:
+Asimismo los elementos HTML pueden tener atributos, que proveen información y comportamiento adicional a los elementos:
 
 ```html
 <!-- con un solo atributo -->
@@ -57,7 +57,7 @@ Observar que:
 - Los atributos están compuestos por pares de claves y valores asociados: `clave="valor"`. Tienen la siguiente sintaxis:
   - Empiezan con el nombre de la clave, seguido por un símbolo de `=`, y finalmente el valor envuelto entre comillas `" "`. Todo sin espacios.
   - Si hay más de un atributo se los separa por un espacio
-  - A diferencia de los nombres de las etiquetas HTML, los nombres de los atributos no llevan parentesis angulares
+  - A diferencia de los nombres de las etiquetas HTML, los nombres de los atributos no llevan paréntesis angulares
 - Notar que hay un espacio luego del nombre de la etiqueta para escribir el primer atributo.
 - Los atributos se ponen dentro de la etiqueta de apertura, no en el contenido ni en la etiqueta de cierre. 
 
@@ -66,7 +66,7 @@ Ejemplos típicos de atributos son:
   - `id`: para especificar un nombre único de ese elemento y luego acceder a ese elemento único con CSS o JS
   - `class`: para especificar un nombre de clase (grupo de elementos) y luego acceder a todos ellos con CSS o JS.
     - El atributo `class` puede aceptar varios nombres de clases, en cuyo caso se deben separar por un espacio.
-  - Los nombres de ids y clases se deben escribir en minuscula, solo con caracteres en inglés y no deben contener espacios. Si tienen nombres de más de una palabra se debe reemplazar el espacio con guiones (`-`): en vez de `"Boton Primario"`, `"boton-primario"`.
+  - Los nombres de ids y clases se deben escribir en minúscula, solo con caracteres en inglés y no deben contener espacios. Si tienen nombres de más de una palabra se debe reemplazar el espacio con guiones (`-`): en vez de `"Boton Primario"`, `"boton-primario"`.
 - Para el elemento `<a>`:
   - `href`: para especificar la ruta de la página donde debe dirigir el enlace
 - Para el elemento `<img>`
@@ -92,23 +92,24 @@ Ejemplos típicos de atributos son:
 
 ```
 
-## El arbol HTML
+## El árbol HTML
 
-La utilidad de HTML reside en poder combinar los elementos básicos para crear estructuras más complejas. Para ello debemos formar un "arbol" de elementos HTML, donde los elementos HTML se "anidan" (poner unos dentro de otros).
+La utilidad de HTML reside en poder combinar los elementos básicos para crear estructuras más complejas. Para ello debemos formar un "árbol" de elementos HTML, donde los elementos HTML se "anidan" (poner unos dentro de otros).
 
-Un arbol es una estructura de organización muy común, que puedes encontrarla, por ejemplo, en tu sistema de archivos. Es una jerarquía de elementos, también llamados en este contexto como "nodos":
+Un árbol es una estructura de organización muy común, que puedes encontrarla, por ejemplo, en tu sistema de archivos. Es una jerarquía de elementos, también llamados en este contexto como "nodos":
 
 ![](img/arbol.png)
 
 Y se puede describir con la siguiente terminología:
-- Como un arbol biológico
-  - Raiz: el primer nodo de donde descienden todos los demás
+- Como un árbol biológico
+  - Raíz: el primer nodo de donde descienden todos los demás
   - Rama: las ramificaciones que se desprenden de algún nodo.
-  - Nodo interno: los nodos que no son raiz ni hojas
+  - Nodo interno: los nodos que no son raíz ni hojas
   - Hoja: los nodos sin descendientes
-- De arbol genealógico
+- De árbol genealógico
   - Ancestro
   - Descendientes
+  - Ascendientes
   - Padre
   - Hijo o hijos
   - Hermano o hermanos
@@ -153,7 +154,7 @@ Ya en `<body>` podemos crear un sub-arbol de diversas maneras, por ejemplo si hi
 
 > ## Tarea
 > - Agregar una imagen suya
-> - Agregar enlace a sus redes sociales, pero con imagenes de las redes en vez de solo texto y deben abrir el enlace en una nueva pestaña
+> - Agregar enlace a sus redes sociales, pero con imágenes de las redes en vez de solo texto y deben abrir el enlace en una nueva pestaña
 > - Agregar una tabla  con la primera columna que diga sus habilidades y la segunda su calificación del 1 al 10
 >
 > Puedes usar Google para resolver esta tarea, pero no IAs como ChatGPT.
@@ -184,7 +185,7 @@ También en el `<head>` se suelen enlazar archivos CSS y JS como veremos más ad
 
 ## Agrupar elementos: divs y spans
 
-Una actividad muy útil luego de componer un arbol o sub-arbol de HTML es poder agrupar ciertas partes de él, para luego poder tanto estilizar esas partes de un solo golpe o manipularlas con JS. Para ello se utiliza la etiqueta `<div>` (división), que se suele acompañar de los atributos `id`, `class` o `style` (ver CSS).
+Una actividad muy útil luego de componer un árbol o sub-árbol de HTML es poder agrupar ciertas partes de él, para luego poder tanto estilizar esas partes de un solo golpe o manipularlas con JS. Para ello se utiliza la etiqueta `<div>` (división), que se suele acompañar de los atributos `id`, `class` o `style` (ver CSS).
 
 Por ejemplo, el código que hemos escrito para nuestro portafolio podríamos agruparlo así
 ```html
@@ -236,14 +237,14 @@ Observar que:
 - Alrededor de los divs hemos dejado lineas en blanco, simplemente para que se vean mejor los divs. Al interprete de HTML no le importan los espacios o lineas entre los elementos HTML, solo las etiquetas. Pero a nosotros (los humanos), nos sirve como pistas visuales para que el código sea más legible.
 - Con esas clases declaradas posteriormente podemos acceder a esas partes con CSS para estilizarlas o con JS para lograr alguna interacción.
 
-Si quisieramos identificar o agrupar una parte de una linea o contenido, tendríamos que usar la etiqueta `<span>`:
+Si quisiéramos identificar o agrupar una parte de una linea o contenido, tendríamos que usar la etiqueta `<span>`:
 
 ```html
 <div class="presentacion-inicial">
-      <h1>Juan Perez</h1>
-        <img src="foto-juan.jpg">
-        <p>Un <span id="resaltado">profesional</span> de la información</p>
-    </div>
+    <h1>Juan Perez</h1>
+    <img src="foto-juan.jpg">
+    <p>Un <span id="resaltado">profesional</span> de la información</p>
+</div>
 ```
 En este caso, queremos poner algún estilo o interacción especial solo a la palabra 'profesional'.
 ## Etiquetas semánticas
@@ -260,5 +261,7 @@ Los más usados son:
 - `<article>`: para contenido independiente, tipo post o comentarios
 - `<figure>`: para elementos visuales independientes, suele envolver a los `<img>` dandole más información con `<figcaption>`
 - `<footer>`: para la información que va a pie de página
+
+[Aquí](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) puedes una lista completa de todos los elementos HTML, por si necesitas otros para estructurar tu contenido.
 
 [<<Anterior](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/01-introduccion) | [Siguiente >>](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/03-css)

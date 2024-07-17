@@ -1,4 +1,4 @@
-# Requitos, instalación y configuración
+# Requisitos, instalación y configuración
 
 ## Requisitos
 
@@ -11,11 +11,11 @@
   - Lógica básica
 - Actitudes
   - Disposición a aprender todo tipo de cosas nuevas
-  - Autodidacticsmo
-  - Disposición a resolver problemas por sí mismo
+  - Autodidactismo
+  - Compromiso con la resolución de problemas
   - Apreciar que hasta las cosas más pequeñas tienen un gran esfuerzo detrás
-  - Paciencia
   - Atención al detalle
+  - Paciencia
 ## Instalación
 
 - Instalar un editor de código
@@ -26,7 +26,7 @@
 - Instalar la extensión [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
   - Sirve para interpretar el código que escribas en VSCode y se visualice en algún navegador a medida que vas modificando tu código.
 - Instalar [Git](https://git-scm.com/) para control de versiones y abrirse una cuenta en [GitHub](https://github.com/) para sincronizar tú código, colaborar con otros desarrolladores y publicar páginas web.
-- Instalar [NodeJS](https://nodejs.org/en), para hacer correr JavaScript fuera del navegador. Cuenta admeás con [npm](https://www.npmjs.com/) para descargar y usar modulos de JavaScript que te serán muy útiles para desarrollar aplicaciones web sobre la base del código de otros.
+- Instalar [NodeJS](https://nodejs.org/en), para hacer correr JavaScript fuera del navegador. Cuenta además con [npm](https://www.npmjs.com/) para descargar y usar modulos de JavaScript que te serán muy útiles para desarrollar aplicaciones web sobre la base del código de otros.
 
 # Configuración
 - VSCode. Puedes elegir configurar algunas funciones útiles:
@@ -36,14 +36,16 @@
 
 
 # Flujos de trabajo comunes
-- Hacer un proyecto web
-  - Crear una carpeta en tu sistema operativo
-  - Abrir la carpeta con VSCode
+- Por cada proyecto web
+  - Crea una carpeta en tu sistema operativo
+  - Abre la carpeta con VSCode
   - En VSCode, crear los siguientes archivos con las siguientes extensiones:
     - index.html
     - style.css
     - script.js
   - Divide tu pantalla en dos partes: a la izquierda VSCode y a la derecha el Navegador. Debes ver al mismo tiempo el código y el resultado interpretado de ese código.
-- Sincronizar tu repositorio de código local con GitHub
+- Sincroniza tu repositorio de código local con GitHub
+  - Crea un repo en GitHub
+  - Vinculalo con tu repo local
 
 [Siguiente >>](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/01-introduccion)

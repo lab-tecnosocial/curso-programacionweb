@@ -23,7 +23,7 @@
     - [Combinando selectores](#combinando-selectores)
     - [Selectores de atributos](#selectores-de-atributos)
     - [Selectores de pseudo-clases](#selectores-de-pseudo-clases)
-  - [Animaciones simples con `:hover`, trancisiones y transformaciones](#animaciones-simples-con-hover-trancisiones-y-transformaciones)
+  - [Animaciones simples con `:hover`, transiciones y transformaciones](#animaciones-simples-con-hover-transiciones-y-transformaciones)
   - [Disposición de elementos](#disposición-de-elementos)
     - [El flujo normal, `position`, `display` y `z-index`](#el-flujo-normal-position-display-y-z-index)
     - [Disposiciones de una dimensión con `flex`](#disposiciones-de-una-dimensión-con-flex)
@@ -59,7 +59,7 @@ h1 {
   font-size: 16px;
   color: blue;
   background-color: rgb(250, 0, 0); /* aqui rgb() es una función */
- }
+}
 ```
 ## Selectores básicos
 Aquí veremos cuatro selectores básicos, luego en otra sección veremos otros selectores más avazandos.
@@ -96,7 +96,7 @@ Para apuntar a modificar clases enteras. Se debe escribir el nombre de la clase 
 ```
 ### Selector de ids
 
-Para apuntar a modificar un elemento identificado. Se debe escribir el nombre del id antecedido por el simbolo de numeral (`#`):
+Para apuntar a modificar un elemento identificado. Se debe escribir el nombre del id antecedido por el símbolo de numeral (`#`):
 ```css
 #titulo-principal {
   ...
@@ -230,7 +230,7 @@ Si vamos de adentro para afuera, estas cuatro capas son:
 - **Contenido**. Este se especifica con las propiedades `width` y `height`
 - **Borde**. Se define con la propiedad `border`
 - **Relleno**. Es el espacio interno a partir del borde. Se define con la propiedad `padding`
-- **Margen**. Es el espacio interno a partir del margen. Se definie con la propiedad `margin`
+- **Margen**. Es el espacio interno a partir del margen. Se define con la propiedad `margin`
 
 Extra: contorno. Es el contorno luego del margen y se especifica con `outline`. Si bien no pertenece propiamente al box model, suele ser útil en estos casos.
 
@@ -319,7 +319,7 @@ Observar que:
 - El div que usamos no tiene contenido, está vacío.
 - El div tiene una clase para poder acceder al elemento desde CSS
 
-Se pueden agrupar varios divs, y acomodarlos como querrramos. Por ejemplo:
+Se pueden agrupar varios divs, y acomodarlos como querramos. Por ejemplo:
 
 ```html
 <html>
@@ -358,7 +358,7 @@ En cuanto a la disposición de los divs, esto siguen el flujo normal (de arriba 
 
 ### Degradados
 
-Los degradados son trancisiones progresivas entre dos o más colores. Pueden ser lineales, radiales o cónicas.
+Los degradados son transiciones progresivas entre dos o más colores. Pueden ser lineales, radiales o cónicas.
 
 Ejemplos básicos de degradados lineales son los siguientes:
 
@@ -366,7 +366,7 @@ Ejemplos básicos de degradados lineales son los siguientes:
 /* un degradado que va de rojo a amarillo, por defecto de arriba hacía abajo */
 background-image: linear-gradient(red, yellow);
 
-/* se puede cambiar la dirección con un parametro textual */
+/* se puede cambiar la dirección con un parámetro textual */
 background-image: linear-gradient(to top right, red, yellow);
 
 /* se puede cambiar la dirección usando grados, donde 0 grados es una linea vertical que va recorrendo hacía la derecha*/
@@ -413,7 +413,7 @@ Implican un color que se enmarca alrededor de algún elemento HTML, se desplaza,
 Observar que:
 - El primer valor es el desplazamiento en el eje x (positivo hacía la derecha, negativo hacía la izquierda): 10px
 - El segundo valor es el desplazamiento en el eje y (positivo hacía abajo, negativo hacía arriba): 5px;
-- El terver valor es un color.
+- El tercer valor es un color.
 
 Pero también se le puede agregar una difuminación (blur) y extensión (spread), como tercer y cuarto valor, respectivamente:
 
@@ -425,7 +425,7 @@ Si tienes que hacer una sombra más complicada, puedes usar una herramienta visu
 
 ## Selectores avanzados
 
-Aquí veremos selectores más avazandos de CSS.
+Aquí veremos selectores más avanzados de CSS.
   
 ### Combinando selectores
 - Lista de selectores (OR): coma. Selecciona todas las combinaciones de selectores y les aplica un mismo bloque de declaraciones
@@ -477,7 +477,7 @@ img:hover {
 
 Una forma divertida de practicar con los selectores CSS es jugando el juego [CSS Diner](https://flukeout.github.io/).
 
-## Animaciones simples con `:hover`, trancisiones y transformaciones
+## Animaciones simples con `:hover`, transiciones y transformaciones
 
 Con la pseudo-clase `:hover` es posible hacer animaciones simples pero efectivas en CSS, sin necesidad de usar JS. Para ello, adicionalmente necesitaremos la propiedad `transition` para hacer los cambios más suaves interpolando los valores intermedios de los cambios. También necesitaremos aprender más de la propiedad `transform` que nos permite hacer transformaciones geométricas básicas como escalar, mover, rotar o sesgar un elemento.
 
@@ -496,9 +496,9 @@ Empezaremos con un ejemplo básico. Queremos que un cuadrado se vuelva en un cir
 ```
 ![](img/hover-simple.gif)
 
-Este código funciona, pero la trancisión entre el cuadrado y el circulo es muy repentina. Para que parezca una animación fluida, necesitamos interpolar los valores intermedios entre los dos estados: de cuadrado a círculo. La propiedad `transition` nos permito eso. Puede recibir de 1 a 4 valores, dependiendo de qué comportamiento querramos lograr:
+Este código funciona, pero la transición entre el cuadrado y el circulo es muy repentina. Para que parezca una animación fluida, necesitamos interpolar los valores intermedios entre los dos estados: de cuadrado a círculo. La propiedad `transition` nos permito eso. Puede recibir de 1 a 4 valores, dependiendo de qué comportamiento querramos lograr:
 
-- Solo especificando la duración: `transition: 1s`, donde la trancisión se aplica a todas las propiedades y recibe una duración que puede recibir segundos (`s`) o milisegundos (`ms`)
+- Solo especificando la duración: `transition: 1s`, donde la transición se aplica a todas las propiedades y recibe una duración que puede recibir segundos (`s`) o milisegundos (`ms`)
 - Especificando la propiedad, duración, función de aceleración y retraso: `transition: width 2s ease 1s`
 
 ```css
@@ -515,10 +515,10 @@ Este código funciona, pero la trancisión entre el cuadrado y el circulo es muy
 ```
 ![](img/hover-transicion.gif)
 
-Observar que la propiedad de trancisión se pone en el elemento inicial y no en el hover.
+Observar que la propiedad de transición se pone en el elemento inicial y no en el hover.
 
 Ahora bien, para poder hacer animaciones simples más interesantes, podemos hacer uso de la propiedad `transform`, que puede recibir las siguientes funciones:
-- `scale()`: para modificar la escala o tamaño por algun factor (ej. 0.5, 2.0, etc.). Si recibe un valor modifica al elemento proporcionalmente. Si recibe dos valores modifica con el primero el eje X y con el segundo el eje Y.
+- `scale()`: para modificar la escala o tamaño por algún factor (ej. 0.5, 2.0, etc.). Si recibe un valor modifica al elemento proporcionalmente. Si recibe dos valores modifica con el primero el eje X y con el segundo el eje Y.
 - `translateX()`, `translateY()`: para mover el elemento en el eje X o Y. Si se quiere mover en diagonal se puede usar `translate(x, y)` con dos valores. En CSS, en el eje X para ir hacía la derecha se usan valores positivos y negativos para ir a la izquierda; en el eje Y, para ir hacía abajo se usan valores positivos y negativos para ir arriba. La coordenada (0, 0) es el punto de origen donde está el elemento.
 - `rotate()`: para rotar según un ángulo (ej. `45deg`)
 - `skew()`: para sesgar con algún ángulo
@@ -573,7 +573,7 @@ Observa que la referencia de qué es `top`, `bottom`, `left` y `right` varía. Y
   left: 50px;
 }
 ```
-Dado que un elemento cualquier puede tener muchos padres, si uno quisiera cambiar la referencia de a qué elemento especificamente nos referimos, entonces simplemente es cosa de asegurarnos de que ese padre tenga un `position` diferente de `static`. Normalmente lo volveremos `relative`:
+Dado que un elemento cualquier puede tener muchos padres, si uno quisiera cambiar la referencia de a qué elemento específicamente nos referimos, entonces simplemente es cosa de asegurarnos de que ese padre tenga un `position` diferente de `static`. Normalmente lo volveremos `relative`:
 
 ```css
 .abuelo{
@@ -590,13 +590,13 @@ Dado que un elemento cualquier puede tener muchos padres, si uno quisiera cambia
   left: 50%;
 }
 ```
-De esta forma esquivaremos al elemento 'abuelo' y el 'hijo' se movera a partir del 'padre'.
+De esta forma esquivaremos al elemento 'abuelo' y el 'hijo' se moverá a partir del 'padre'.
 
 Con ese mismo patrón, usando la combinación de `absolute` con `relative`, es posible superponer varios elementos HTML. Por ejemplo:
 
 ![](img/elementos-apilados.png)
 
-También para la propiedad `position` existen los valores `fixed` para ubicarlo en lugar fijo de la pantalla sin importar el scroll y `sticky` que permite cierto scroll y luego podmemos 'pegarlo' en algun lugar de la pantalla.
+También para la propiedad `position` existen los valores `fixed` para ubicarlo en lugar fijo de la pantalla sin importar el scroll y `sticky` que permite cierto scroll y luego podemos 'pegarlo' en algun lugar de la pantalla.
 
 Una vez que apilemos varias capas de elementos HTML, en algún momento podemos querer cambiar su orden (cuán atrás o adelante está el elemento), tal como se hace en las capas de Photoshop o Illustrator. Para ello podemos usar la propiedad `z-index` que puede ser entendido como la profundidad del elemento, entre un número más bajo más bajo, y entre un número más alto más arriba:
 
@@ -642,7 +642,7 @@ Otra propiedades útiles de flex son:
   - `flex`: que permite especificar cuánto está permitido que crezca, se reduzca y su base. Por ejemplo: `flex: 2 1 100px`
 ### Disposiciones de dos dimensiones con `grid`
 
-Con `grid`, a diferencia de `flex`, podemos controlar no solamente filas y columnas, sino grillas o cuadriculas enteras, que puede servir tanto para elementos especificos que requieran una cuadricula o para estructurar todo el sitio web entero.
+Con `grid`, a diferencia de `flex`, podemos controlar no solamente filas y columnas, sino grillas o cuadriculas enteras, que puede servir tanto para elementos específicos que requieran una cuadricula o para estructurar todo el sitio web entero.
 
 Al igual que con flex, hay algunas propiedades que se deben especificar en el contenedor y otras en los elementos. Los básicos son:
 
@@ -703,7 +703,7 @@ Que da por resultado:
 ## Diseño responsivo con 'media queries'
 El desarrollo web antes solo se enfocaba en que tu página, sitio o app se viera bien en las pantallas de computadora. Sin embargo, ahora la mayoría de las personas acceden a la web mediante sus celulares, que tienen una pantalla mucho más pequeña, por lo que el diseño de tu web debe ser adaptativo (*responsive*).Si bien usando unidades relativas y disposiciones modernas como flex y grid se puede lograr en parte un diseño responsivo, se necesitan también otras técnicas. Aquí veremos los 'media queries'.
 
-Los 'media queries' (consulta del medio), nos permiten consultar sobre el tamaño, resolución, orientación de la pantalla, entre otros. Particularmente es útil consultar ancho de la pantalla (`max-width` o `min-width`) y según eso se puede ejecutar un código especifico para ciertos tamaños de pantalla.
+Los 'media queries' (consultas del medio), nos permiten consultar sobre el tamaño, resolución, orientación de la pantalla, entre otros. Particularmente es útil consultar ancho de la pantalla (`max-width` o `min-width`) y según eso se puede ejecutar un código especifico para ciertos tamaños de pantalla.
 
 ```css
 p {
@@ -716,7 +716,7 @@ p {
 }
 ```
 Observar que:
-- Con a etiqueta de párrafo se declara un tamaño de letra de 14px que sera el tamaño por defecto.
+- Con la etiqueta de párrafo se declara un tamaño de letra de 14px que sera el tamaño por defecto.
 - Sin embargo, si el ancho de la pantalla es hasta máximo 480px, entonces se reduce su tamaño a 11px.
 - Se pueden agregar más declaraciones CSS dentro del bloque del media query.
 
@@ -727,12 +727,12 @@ Los valores de los anchos típicos para cambiar el diseño se llaman *breakpoint
 
 Ahora bien hay dos estrategias para crear diseños responsivos:
 - Desktop first: donde se diseña primero para pantallas de computadoras de escritorio (multiples columnas) y luego se ajustan para los celulares, usando principalmente `max-width`.
-- Mobile first: donde se diseña primero para las pantallas de celulares (una columna) y luego se ajustan para las pantallas grandes usando principilmente `min-width`.
+- Mobile first: donde se diseña primero para las pantallas de celulares (una columna) y luego se ajustan para las pantallas grandes usando principalmente `min-width`.
 ## Variables CSS
 CSS si bien no es un lenguaje de programación completo, tiene algunas características útiles de los lenguajes de programación, como son las variables o 'custom properties'. La utilidad de las variables están en que nos permite tener mayor control, reusabilidad y evitar las repeticiones con los valores.
 
 Las variables son como contenedores que nos permiten almacenar, usar y actualizar valores. Tienen un ciclo de vida básico:
-- Declaración en un determinado contexto (*scope*), normalmente en la pseudo clase `:root` si se quiere que la variable sea global, que es equivalmente al elemento `html` pero con mayor prioridad:
+- Declaración en un determinado contexto (*scope*), normalmente en la pseudo clase `:root` si se quiere que la variable sea global, que es equivalente al elemento `html` pero con mayor prioridad:
   ```css
   :root {
     --mi-color: blue;
@@ -757,7 +757,7 @@ Las variables son como contenedores que nos permiten almacenar, usar y actualiza
 También es posible redefinir el valor de la variable solo para ciertos contextos (*scopes*):
 
 ## Frameworks de CSS
-Si bien hasta ahora hemos aprendido a usar CSS de forma específica, también podemos usar 'frameworks', que son  marcos de referencia preparados que nos facilitan el trabajo, y que poseen  un sistema de diseño coherente y declaraciones CSS ya escritas por otros.
+Si bien hasta ahora hemos aprendido a usar CSS de forma directa, también podemos usar 'frameworks', que son  marcos de referencia preparados que nos facilitan el trabajo, y que poseen  un sistema de diseño coherente y declaraciones CSS ya escritas por otros.
 
 Entonces lo que nos queda hacer es:
 - Importar ese framework (sea con una URL pública o con un archivo local usando el elemento `<link>`)
