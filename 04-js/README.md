@@ -260,14 +260,161 @@ aumentarPUntos(3, 7);
 La primera invocación accede al primer parcial y aumenta quince puntos. La segunda accede al tercer parcial y aumenta 7 puntos.
 
 ### Estructuras de control
+También llamado como "control de flujo", sirven para modificar el flujo normal de un bloque de código. Lo normal es que se ejecuten secuencialmente, de arriba hacía abajo, pero es posible además lograr lo siguiente:
+
+- Ramificar el flujo a partir de condiciones, mediante condicionales. También llamado selección o decisión.
+- Repetir el flujo, mediante bucles. También llamado repetición o iteración
+
+Estas estructuras de control visualmente se ven así:
+
+![](img/control-structures.webp)
 
 #### Condicionales
+Las condicionales nos permiten tomar decisiones en función a circunstancias especificas, que se prueban a partir de comparaciones que devuelven valores booleanos (`true` o `false`).
+
+Siguiendo con el ejemplo anterior de la asignación de notas, ¿qué pasa si el estudiante tiene ya 100 puntos qué es el máximo? Ese es un caso especial que hay que atender, la función debería saber que en ese caso no se puede aumentar más. Para ello usaremos una condicional de la siguiente forma:
+
+```js
+function aumentarPuntos(parcial, puntos){
+  if(notas[parcial - 1] === 100) {
+    console.log("El estudiante ya tiene 100");
+    return;
+  }
+  notas[parcial - 1] += puntos;
+  console.log("Puntos agregados");
+  return notas[parcial];
+}
+```
+Observar que:
+- Para hacer condicionales debemos usar la palabra clave `if` (si)
+- `if` comprobara si lo que le sigue y está en paréntesis es verdadero o falso. Para hacer este comprobación se necesita usar operadores de comparación:
+  - `===`: igual que
+  - `!==`: no igual ue
+  - `>`: mayor que
+  - `<`: menor que
+  - `>=`: mayor o igual que
+  - `<=`: menor o igual que
+- Si es verdadero entonces ejecutará el bloque de código que están entre las llaves `{}`. Pero si es falso simplemente lo omitirá, como si no existiera y continuará con el flujo secuencia del código.
+- Dentro del bloque del condicional, en caso de que sea verdadero, primero imprimirá un mensaje para el usuario y luego simplemente terminará su ejecución con `return`.
+
+También podemos comprobar condiciones más complejas utilizando operadores lógicos:
+- `&&`: conjunción o "y". Devuelve verdadero solo si todos los valores son verdaderos
+- `||`: disyunción u "o". Devuelve falso solo si todos los valores son falsos.
+- `!`: negación o "no". Invierte el valor, de verdadero a falso o de falso a verdadero.
+
+Por ejemplo, si quisiéramos verificar que tiene 100 en los tres parciales:
+```js
+function aumentarPuntos(parcial, puntos){
+  if(notas[0] === 100 && notas[1] === 100 && notas[2] === 100){
+    console.log("¡Tiene 100 en todo!")
+    return;
+  }
+  if(notas[parcial - 1] === 100) {
+    console.log("El estudiante ya tiene 100");
+    return;
+  }
+  notas[parcial - 1] += puntos;
+  console.log("Puntos agregados");
+  return notas[parcial];
+}
+```
+
+También es posible agregar una clausula `else` (sino), que sirve para manejar de forma directa el caso falso o incluir más comprobaciones con `if`:
+
+```js
+function aumentarPuntos(parcial, puntos){
+  if(notas[parcial - 1] === 100) {
+    console.log("El estudiante ya tiene 100");
+    return;
+  } else if(notas[parcial - 1] > 90) {
+    console.log("Ya casi llega al limite");
+  }
+  notas[parcial - 1] += puntos;
+  console.log("Puntos agregados");
+  return notas[parcial];
+}
+```
+Se puede agregar varios `else if` para manejar varios casos. O también si hay muchos casos se puede usar un `switch`, que tiene una sintaxis diferente:
+
+```js
+switch (expresion) {
+  case caso1:
+    codigo
+    break;
+  case caso2:
+    codigo
+    break;
+  // …
+  case casoN:
+    codigo
+  break;
+  default:
+    codigo
+}
+```
 
 #### Bucles (loops)
+Los bucles nos permiten ejecutar un bloque una cantidad definida o indefinida de veces de acuerdo a una condición booleana. Veremos dos variantes: `for` y `while`.
+
+Siguiendo con la misma función, ahora queremos hacer un reporte de las tres notas del estudiante. Entonces debemos recorrer la lista o array de notas:
+
+```js
+let notas = [50, 70, 90];
+for(let i = 0; i < notas.length; i++){
+  console.log(notas[i]);
+}
+```
+Este tipo de constructo es raro de ver al inicio, pero con el tiempo se hace más sencillo. Unas alternativas más sencillas de usar son `for of` para recorrer arreglos y `for in` para recorrer objetos.
+
+```js
+let notas = [50, 70, 90];
+for(let nota of notas){
+  console.log(nota);
+}
+
+let notasObjeto = {p1: 50, p2: 70, p3: 90};
+for(let nombre in notas){
+  notas[nombre];
+}
+```
+Observar que:
+- Un bucle se construye con la palabra clave `for` seguido de tres elementos: `(inicio; condicion; incremento/decremento)`. 
+  - Se inicia con una variable, en este caso `i`
+  - El bucle se ejecutará solo mientras la condición sea verdadera. En este caso solo mientras que `i` sea menor que la longitud del arreglo `notas`
+  - En cada vuelta se incrementará `i` con 1.
+- En el cuerpo del bucle se imprime cada elemento dentro del arreglo `notas`, ya que `i` va incrementándose en cada vuelta, de 0 a 2.
+- Esta es un bucle definido porque sabemos la cantidad de veces que se repetirá.
+
+Por otro lado, tenemos el bucle `while`, cuando no sabemos el número exacto de repeticiones, pero sí queremos que algo se repita mientras una condición sea verdadera. Por ejemplo para sumar:
+
+```js
+let notas = [50, 70, 90];
+let suma = 0;
+
+while (notas.length > 0) {
+  suma += notas.shift();
+}
+console.log(suma);
+```
+Ten cuidado de entrar a bucles infinitos no controlados, que consumen muchos recursos de tu computadora y pueden crashearla.
 
 ## Programación web con JS
+Todo lo que vimos hasta ahora fueron conceptos de programación general, que otros lenguajes de programación también lo tienen a su forma. Ahora veremos conceptos relacionados directamente con la manipulación de una página web, el navegador y su interacción.
 
 ### El DOM
+El DOM (Document Object Model) es una representación de toda la página web con sus elementos HTML y CSS pero en forma de objetos. Con el DOM y JavaScript podemos de forma programática:
+- Crear y eliminar elementos HTML
+- Modificar atributos HTML
+- Modificar los estilos CSS
+- Interactuar con los eventos
+
+Lo primero es aprender a recorrer el DOM para poder ubicar los elementos que quieres modificar. El objeto principal es `document`, donde están el resto de elementos:
+
+```js
+
+```
+
+![](img/dom-traversal.png)
 
 ### Estilos con JS
 
