@@ -14,9 +14,12 @@
       - [Bucles (loops)](#bucles-loops)
   - [Programación web con JS](#programación-web-con-js)
     - [El DOM](#el-dom)
-    - [Estilos con JS](#estilos-con-js)
+      - [Búsqueda en el DOM](#búsqueda-en-el-dom)
+      - [Recorrido en el DOM](#recorrido-en-el-dom)
+    - [Trabajar con elementos y atributos](#trabajar-con-elementos-y-atributos)
+    - [Modificación de estilos](#modificación-de-estilos)
     - [Eventos](#eventos)
-  - [Una mini app web completa](#una-mini-app-web-completa)
+  - [Una app web completa](#una-app-web-completa)
 
 Aprender JavaScript para programación web tiene típicamente dos partes:
 
@@ -38,10 +41,10 @@ Aprender JavaScript para programación web tiene típicamente dos partes:
 Una variable es como un contenedor etiquetado que contiene un determinado valor que puede variar. Por ejemplo:
 ```js
 let persona = "Juan Perez";
-let pi = 3.1416
+let pi = 3.1416;
 ```
 Notar que:
-- Para declarar una variable la primera vez es necesario usar la palabra clave `let`
+- Para declarar una variable la primera vez es necesario usar la palabra clave `let` si la asignación cambiará en el futuro, sino cambia puedes usar `const`
 - Luego hay que poner la etiqueta, nombre o identificador de la variable, en este caso `persona`. Hay unas reglas para especificar los nombres de las variables:
   - Deben contener solo caracteres en inglés, no ñ, ni tildes
   - Deben ser una sola palabra, y si tienen más de una palabra se debe usar el "camel case", es decir en vez de `nombre completo`: `nombreCompleto`.
@@ -408,16 +411,154 @@ El DOM (Document Object Model) es una representación de toda la página web con
 - Modificar los estilos CSS
 - Interactuar con los eventos
 
-Lo primero es aprender a recorrer el DOM para poder ubicar los elementos que quieres modificar. El objeto principal es `document`, donde están el resto de elementos:
+Trabajaremos como ejemplo con el siguiente HTML:
+
+```html
+<html>
+  <head>
+    <title>Una página HTML</title>
+  </head>
+  <body>
+    <h1 id="titulo">Un encabezado h1</h1>
+    <ul>
+      <li class="items">A</li>
+      <li class="items">B</li>
+      <li class="items">C</li>
+    </ul>
+    <a href="google.com">Un sitio web</a>
+    <img>
+  </body>
+</html>
+```
+Lo primero es aprender a navegar en el DOM para poder ubicar los elementos que quieres modificar. El objeto principal es `document`, donde están el resto de elementos:
 
 ```js
+document.body.style.background = 'blue';
+```
+#### Búsqueda en el DOM
+Desde `document` podemos acceder directamente a `head` y `body`, pero para el resto de elementos debemos hacer una búsqueda o un recorrido. Para la búsqueda de etiquetas, ids y clases, usaremos tres métodos de `document`:
 
+- `document.getElementsByTagName()`: devuelve una colección de elementos de la etiqueta especificada
+- `document.getElementById()`: devuelve un elemento único con el id especificado
+- `document.getElementsByClassName()`: devuelve una colección de elementos con la clase especificada
+
+```js
+let headings1 = document.getElementsByTagName('h1');
+let titulo = document.getElementById('titulo');
+let items = document.getElementsByClassName('items');
+```
+Pero también hay una forma de usar todas las combinaciones de los selectores CSS para hacer la búsqueda, un método más moderno y flexible:
+
+- `document.querySelector()`: devuelve la primera instancia de la búsqueda.
+- `document.querySelectorAll()`: devuelve una colección de todas las instancias que coinciden con la búsqueda.
+```js
+let headings1 = document.querySelector('h1');
+let titulo = document.querySelector('#titulo');
+let items = document.querySelectorAll('.items');
+```
+Observa que:
+- Se debe pasar en las funciones el selector CSS en string, como si lo referenciaras desde un archivo CSS.
+
+#### Recorrido en el DOM
+
+En otras ocasiones en lugar de búsqueda, o complementándola, se puede recorrer el DOM que es también un árbol. Para ello usaremos los siguientes métodos para recorrer elementos:
+
+![](img/dom-traversal-elements.png)
+
+```js
+let titulo = document.firstElementChild;
+let items = document.querySelector('ul').children;
+```
+### Trabajar con elementos y atributos
+Es posible crear toda la estructura de HTML desde JS, pero lo normal es que haya una estructura HTML básica y con JS se puede cambiarla o ajustarla dinamicamente. 
+
+Para crear elementos HTML debemos:
+- Crear el elemento con `document.createElement()`
+- Insertar el elemento a algún lugar del árbol del DOM `append()` o `prepend()`, si queremos que el elemento sea visible al final o al inicio de un elemento seleccionado.
+- Si queremos añadir texto al elemento podemos usar la propiedad `textContent` del elemento
+
+Y para remover un elemento podemos usar en ese mismo elemento el método `remove()`
+
+```js
+// para agregar un encabezado de nivel 2
+let subtitulo = document.createElement('h2');
+subtitulo.textContent = 'Mi subtitulo'
+document.body.append(subtitulo);
+```
+Para trabajar con los atributos de los elementos podemos usar:
+- `hasAttribute(nombre)`: para comprobar si el atributo existe
+- `getAttribute(nombre)`: para obtener el atributo
+- `setAttribute(nombre, valor)`: para poner un nombre y valor
+- `removeAttribute(nombre)`: para remover el atributo
+- `attributes`: propiedad donde están todos los atributos del elemento
+
+```js
+// obtener un atributo e imprimirlo
+let enlace = document.querySelector('a');
+let direccion = enlace.getAttribute('href');
+console.log(direccion);
+
+// añadir un atributo, su nombre y valor
+let imagen = document.querySelector('img');
+imagen.setAttribute('src', 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png')
+```
+### Modificación de estilos
+También es posible modificar los estilos CSS desde JS. Se puede trabajar con CSS de dos formas:
+- Modificar el objeto `style`
+- Agregar, remover o conmutar clases. Para ello se puede usar `className` o `classList`.
+
+En el primer caso:
+```js
+// modificar el tipo de fuente y tamaño del titulo
+let h1 = document.querySelector('h1')
+h1.style.fontFamily = 'Courier New';
+h1.style.fontSize = '24px';
+```
+Observar que:
+- Si queremos acceder a una propiedad de `style` que sea más de una palabra en vez de usar `font-size` que es lo normal en CSS (kebab-case), usaremos `fontSize` (camelCase).
+
+Pero el segundo caso es más flexible y recomendable. Definir una clase en el archivo CSS con todos los estilos que queramos y luego asignar esa clase con JS.
+
+```css
+.fuente-grande {
+  font-family: 'Courier New';
+  font-size: 24px;
+}
+```
+```js
+let h1 = document.querySelector('h1');
+h1.className = 'fuente-grande';
+// alternativamente si queremos agregar varias clases
+h1.classList.add('fuente-grande');
+```
+Observar que:
+- `className` solo recibe una sola clase, y si le agregas otra la sobreescribe
+- Si queremos agregar varias clases es mejor usar `classList`, que además tiene métodos para remover (`remove()`), conmutar una clase (`toggle()`) y comprobar si existe una clase (`contains()`).
+  
+### Eventos
+Lo que vimos anteriormente es bastante útil para modificar elementos, atributos y estilos. Pero muchas veces querremos que esos modificaciones se den en función de las interacciones que hagan nuestros usuarios en nuestra página web. Para existen los eventos en JS, que se pueden armar y trabajar a partir de los siguientes conceptos:
+
+- 'event target': es simplemente el elemento HTML que será el objetivo del evento
+- 'event listener': es la función que permite añadir un evento a un elemento, al cual hay que especificar (1) un evento, como `click`, `contextmenu`, `mouseover`, `keydown`, `submit`, etc. Y (2) un 'event handler'.
+- 'event handler': es simplemente una función que se ejecutará en caso de que suceda el evento en el 'event target' especificado.
+- 'event object': es el objeto que se crea cuando el evento sucede y que te brinda más información de lo sucedido.
+
+Por ejemplo, si quisiéramos que el titulo cambiará solo cuando se le dé un click, entonces:
+
+```js
+// event target y sus selector
+let h1 = document.querySelector('h1');
+
+// event listener
+h1.addEventListener('click', cambiarTitulo);
+
+// event handler
+function cambiarTitulo(event){  // adicionalmente aquí atrapamos el objeto evento
+
+}
 ```
 
-![](img/dom-traversal.png)
+## Una app web completa
+Con todo lo visto, ahora puedes armar una app web completa. Partiremos de algo pequeño: una lista de tareas. 
 
-### Estilos con JS
-
-### Eventos
-
-## Una mini app web completa
+Tendrás que aplicar y combinar todo lo visto aquí, pero aquí te dejamos unas pistas.
