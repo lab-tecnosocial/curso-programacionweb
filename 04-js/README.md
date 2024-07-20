@@ -546,7 +546,7 @@ Lo que vimos anteriormente es bastante útil para modificar elementos, atributos
 Por ejemplo, si quisiéramos que el titulo cambiará solo cuando se le dé un click, entonces:
 
 ```js
-// event target y sus selector
+// event target y su selector
 let h1 = document.querySelector('h1');
 
 // event listener
@@ -554,11 +554,69 @@ h1.addEventListener('click', cambiarTitulo);
 
 // event handler
 function cambiarTitulo(event){  // adicionalmente aquí atrapamos el objeto evento
-
+  h1.style.fontFamily = 'Courier New';
+  h1.style.fontSize = '24px';
+  console.log(event);
 }
 ```
 
 ## Una app web completa
-Con todo lo visto, ahora puedes armar una app web completa. Partiremos de algo pequeño: una lista de tareas. 
+Con todo lo visto, ahora puedes armar una app web completa. Partiremos de algo pequeño: una lista de tareas. Trata de emular su estructura y estilo:
 
-Tendrás que aplicar y combinar todo lo visto aquí, pero aquí te dejamos unas pistas.
+![](img/lista-tareas.jpg)
+
+Se comporta de la siguiente manera:
+- El usuario le da click a la caja de entrada de texto y puede escribir una tarea. 
+- Para guardar la tarea le da clic al signo + y la lista se guarda abajo con las demás
+- Cada tarea en la lista tiene además del texto dos botones:
+  - Un botón azul para completar la tarea, que tacha la tarea
+  - Un botón rojo para eliminar la tarea
+
+Tendrás que aplicar y combinar todo lo visto aquí, pero aquí te dejamos unas pistas para HTML, CSS y JS:
+
+**HTML**
+- header
+  - form
+    - input.entrada-tarea
+    - button.boton-entrada
+- main
+  - div.contenedor-tareas
+    - ul.lista-tareas
+      - li.tarea
+        - p.tarea-item
+        - button.boton-completado
+        - button.boton-eliminado
+
+**CSS**
+
+- body
+  - altura minima
+  - gradiente lineal
+- header, form, .contenedor-tareas
+  - altura minima
+  - flex
+- form button
+  - sin borde
+  - celeste
+  - efecto con hover
+- .boton-completado
+  - azul
+- .boton-completado
+  - rojo
+- .completado
+  - texto tachado
+
+
+**JS**
+
+- event targets
+  - entradaTarea
+  - botonTarea
+  - listaTareas
+- event listeners
+  - botonTarea click
+  - listaTareas click
+- event handlers
+  - anadirTarea()
+  - procesarTarea()
+
