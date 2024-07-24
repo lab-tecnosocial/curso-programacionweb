@@ -1,0 +1,16 @@
+button {
+    display: block;
+    margin-inline: auto;
+}
+
+.fiesta {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: pink;
+    color: aqua;
+}
+
+.velorio {
+    font-family: 'Courier New';
+    background-color: black;
+    color: white;
+}

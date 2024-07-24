@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes con Lightbox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="gallery">
+        <img src="https://picsum.photos/200/300" alt="Imagen 1" class="gallery-item">
+        <img src="https://picsum.photos/200/300" alt="Imagen 2" class="gallery-item">
+        <img src="https://picsum.photos/200/300" alt="Imagen 3" class="gallery-item">
+        <img src="https://picsum.photos/200/300" alt="Imagen 4" class="gallery-item">
+        <img src="https://picsum.photos/200/300" alt="Imagen 5" class="gallery-item">
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
