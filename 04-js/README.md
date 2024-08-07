@@ -78,11 +78,32 @@ Las variables son muy útiles en programación porque pueden guardar datos y sus
 Vimos que las las variables guardan datos, pero ¿y las instrucciones? Las instrucciones pueden venir en forma:
 
 - Operadores: que son símbolos que ejecutan alguna operación sobre operandos, que suelen ser variables
-  - Operadores aritméticos: como: `+`, `-`, `/`, `*`, `**`, que pueden hacer funcionar a JavaScript como una calculadora
-  - Operadores de comparación: como `>`, `<`, `===`, `!===`
-  - Operadores lógicos: como `&&`, `||`, `!`
+  - Operadores de asignación
+    - `=`: para asignar el valor de la derecha a la variable de la izquierda
+    - `+=`: para aumentar un valor a la misma variable
+    - `-=`: para restar un valor a la misma variable
+  - Operadores aritméticos, que pueden hacer funcionar a JavaScript como una calculadora:
+    - `+`: suma cuando hay números (o concatenación cuando son strings)
+    - `-`: resta
+    - `*`: multiplicación
+    - `/`: división
+    - `**`: exponenciación
+    - `++`: incremento (operador unario)
+    - `--`: decremento (operador unario)
+  - Operadores de comparación:
+    - `===`: igual que
+    - `!==`: no igual que
+    - `>`: mayor que
+    - `<`: menor que
+    - `>=`: mayor o igual que
+    - `<=`: menor o igual que
+  - Operadores lógicos:
+    - `&&`: $y$ o conjunción
+    - `||`: $o$ o disyunción
+    - `!`: $\text{no}$ o negación
 - Funciones: que son procedimientos que se aplican a unas entradas y producen unas salidas. Por ejemplo:
   - `console.log()` para imprimir resultados en consola
+  - `alert()`: despliega una caja de alerta en la ventana del navegador
   - `Math.random()` para generar números aleatorios
 - Composiciones de funciones: que aplican varias funciones a determinados datos
 
