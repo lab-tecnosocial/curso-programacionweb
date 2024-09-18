@@ -448,7 +448,7 @@ console.log(suma);
 Ten cuidado de entrar a bucles infinitos no controlados, que consumen muchos recursos de tu computadora y pueden crashearla.
 
 ### Objetos y clases
-Ahora que ya conocemos sobre variables, colecciones y funciones, podemos hablar más plenamente de lo que hace un objeto y formas de construirlo. En ocasiones necesitaremos organizar nuestro código de tal forma que en una misma referencia (variable) tengamos agrupados varias propiedades pero también funciones. Ya vimos que los objetos pueden soportar multiles propiedades, pero también pueden soportar funciones. 
+Ahora que ya conocemos sobre variables, colecciones y funciones, podemos hablar más plenamente de lo que hace un objeto y sus formas de construirlo. En ocasiones necesitaremos organizar nuestro código de tal forma que en un mismo lugar tengamos agrupados varias propiedades pero también funciones. Ya vimos que los objetos pueden soportar multiples propiedades, pero también pueden soportar funciones. 
 
 Un objeto sirve para modelar alguna entidad, tanto en sus atributos (propiedades) o comportamiento (funciones):
 ```mermaid
@@ -463,7 +463,7 @@ classDiagram
 ```
 En el contexto de los objetos, las funciones suelen llamarse "métodos" y se acceden también con el operador punto (`.`).
 
-Para crear objetos ya vimos que podeos usar las llaves `{}`, esto se llama "objeto literal", y agregaríamos propiedades y métodos de la siguiente forma:
+Para crear objetos ya vimos que podemos usar las llaves `{}`, esto se llama "objeto literal", y agregaríamos propiedades y métodos de la siguiente forma:
 ```js
 const animal = {
   especie: 'Perro',
@@ -483,9 +483,31 @@ Observar que:
 - En este caso definimos dos métodos para animal: `caminar()` y `comer()`. Estas funciones solo imprimen mensajes para el ejemplo, pero se pueden hacer funciones más complicadas sin problema.
 - Para invocarlos habría que hacerlo así: `animal.caminar()` y `animal.comer()`
 
-También para definir objetos se puede usar una "función constructora" o la función `Object.create()`.
+Cuando queremos crear una gran cantidad de objetos podemos usar una "función constructora" que nos sirva como una especie de "fabrica" de objetos, de la siguiente forma:
 
-Otra forma de definir funciones es usando "clases" que funcionarían como plantillas de objetos, al estilo de lenguajes programación orientadas a objetos como Java o C#. La sintaxis para usar clases es:
+```js
+function Animal(especie, edad, nombre, esterilizado){
+  this.especie = especie;
+  this.edad = edad;
+  this.nombre = nombre;
+  this.esterilizado = esterilizado;
+}
+
+const animal1 = new Animal('Ave', 2, 'Lucio', false);
+const animal2 = new Animal('Serpiente', 1, 'Pisto', false);
+```
+Observar que:
+- El nombre de la función está en mayúsculas, por convención, para marcar que es un tipo de objeto
+- Los parámetros de la función se pasan a `this`, que se refiere a sí mismo como objeto que luego se devolverá
+- Al crear los objetos se usa la palabra clave `new` para que devuelva un objeto especifico
+
+
+Otra forma es crear un objeto a partir de otro objeto prototipo con la función `Object.create()`:
+
+```js
+const animal3 = Object.create(animal);
+```
+Otra de definir funciones es usando "clases" que funcionarían como plantillas de objetos, al estilo de lenguajes programación orientados a objetos como Java o C#. La sintaxis para usar clases es (aunque el fondo se están usando prototipos de todas formas):
 
 ```js
 class Animal {
