@@ -12,6 +12,7 @@
     - [Estructuras de control](#estructuras-de-control)
       - [Condicionales](#condicionales)
       - [Bucles (loops)](#bucles-loops)
+    - [Objetos y clases](#objetos-y-clases)
   - [Programación web con JS](#programación-web-con-js)
     - [El DOM](#el-dom)
       - [Búsqueda en el DOM](#búsqueda-en-el-dom)
@@ -228,7 +229,7 @@ Puedes transformar un archivo JSON a un objeto JavaScript de la siguiente forma:
 ### Funciones
 Las funciones son procedimientos que podemos "empaquetar" y reutilizar en diferentes situaciones. Para ello debemos primero declararlo y luego invocarlo. Veremos un caso simple y luego el caso completo.
 
-En el caso simple, pongamos el caso que solemos aumentar 1 punto extra por participación a las notas de un estudiante, en diferentes ocasiones:
+En el caso simple, pongamos el caso de que queremos aumentar 1 punto extra por participación a las notas de un estudiante, en diferentes ocasiones:
 
 ```js
 let notasEstudiante = [50, 70, 90];
@@ -253,7 +254,7 @@ Observar que:
 - Para declarar una función debemos usar la palabra clave `function`, luego poner un nombre a la función seguido de paréntesis `()`. 
 - Luego abrir un bloque con llaves `{ }`, donde podemos poner el código que queramos que se ejecute cada vez que invoquemos la función.
 - Para invocar la función usamos su nombre seguido de paréntesis
-- La invocación de la función se diferencia de un nombre de variable por los paréntesis que lo acompañan.
+- La invocación de la función se diferencia de un nombre de variable por los paréntesis `()` que lo acompañan.
   
 Sin embargo, este caso simple no es muy flexible, solo agrega un punto al primer parcial. ¿Qué pasa si queremos agregar diferentes cantidades de puntos a diferentes parciales? Para eso debemos ver el caso completo.
 
@@ -296,7 +297,13 @@ Estas estructuras de control visualmente se ven así:
 #### Condicionales
 Las condicionales nos permiten tomar decisiones en función a circunstancias especificas, que se prueban a partir de comparaciones que devuelven valores booleanos (`true` o `false`).
 
-Siguiendo con el ejemplo anterior de la asignación de notas, ¿qué pasa si el estudiante tiene ya 100 puntos qué es el máximo? Ese es un caso especial que hay que atender, la función debería saber que en ese caso no se puede aumentar más. Para ello usaremos una condicional de la siguiente forma:
+Siguiendo con el ejemplo anterior de la asignación de notas, ¿qué pasa si el estudiante tiene ya 100 puntos qué es el máximo? Ese es un caso especial que hay que atender, la función debería saber que en ese caso no se puede aumentar más. Para ello usaremos una condicional, esta es su sintaxis:
+```
+if(condicion) {
+  // codigo
+}
+```
+Ahora aplicamos una condicional a nuestra función:
 
 ```js
 function aumentarPuntos(parcial, puntos){
@@ -380,7 +387,15 @@ switch (expresion) {
 #### Bucles (loops)
 Los bucles nos permiten ejecutar un bloque una cantidad definida o indefinida de veces de acuerdo a una condición booleana. Veremos dos variantes: `for` y `while`.
 
-Siguiendo con la misma función, ahora queremos hacer un reporte de las tres notas del estudiante. Entonces debemos recorrer la lista o array de notas:
+El bucle `for` tiene la siguiente sintaxis:
+
+```
+for(variable; condicion; incremento){
+
+}
+```
+
+Siguiendo con la misma función, ahora queremos hacer un reporte de las tres notas del estudiante. Entonces debemos recorrer la lista o array de notas 
 
 ```js
 let notas = [50, 70, 90];
@@ -388,7 +403,16 @@ for(let i = 0; i < notas.length; i++){
   console.log(notas[i]);
 }
 ```
-Este tipo de constructo es raro de ver al inicio, pero con el tiempo se hace más sencillo. Unas alternativas más sencillas de usar son `for of` para recorrer arreglos y `for in` para recorrer objetos.
+Observar que:
+- Un bucle se construye con la palabra clave `for` seguido de tres elementos: `(inicio; condicion; incremento/decremento)`. 
+  - Se inicia con una variable, en este caso `i`
+  - El bucle se ejecutará solo mientras la condición sea verdadera. En este caso solo mientras que `i` sea menor que la longitud del arreglo `notas`
+  - En cada vuelta se incrementará `i` con 1.
+- En el cuerpo del bucle se imprime cada elemento dentro del arreglo `notas`, ya que `i` va incrementándose en cada vuelta, de 0 a 2.
+- Esta es un bucle definido porque sabemos la cantidad de veces que se repetirá.
+  
+
+Unas alternativas más sencillas de usar son `for of` para recorrer arreglos y `for in` para recorrer objetos.
 
 ```js
 let notas = [50, 70, 90];
@@ -401,15 +425,16 @@ for(let nombre in notas){
   notas[nombre];
 }
 ```
-Observar que:
-- Un bucle se construye con la palabra clave `for` seguido de tres elementos: `(inicio; condicion; incremento/decremento)`. 
-  - Se inicia con una variable, en este caso `i`
-  - El bucle se ejecutará solo mientras la condición sea verdadera. En este caso solo mientras que `i` sea menor que la longitud del arreglo `notas`
-  - En cada vuelta se incrementará `i` con 1.
-- En el cuerpo del bucle se imprime cada elemento dentro del arreglo `notas`, ya que `i` va incrementándose en cada vuelta, de 0 a 2.
-- Esta es un bucle definido porque sabemos la cantidad de veces que se repetirá.
 
-Por otro lado, tenemos el bucle `while`, cuando no sabemos el número exacto de repeticiones, pero sí queremos que algo se repita mientras una condición sea verdadera. Por ejemplo para sumar:
+Por otro lado, tenemos el bucle `while`, cuando no sabemos el número exacto de repeticiones, pero sí queremos que algo se repita mientras una condición sea verdadera. Su sintaxis es:
+
+```
+while(condicion){
+
+}
+```
+
+Por ejemplo para sumar:
 
 ```js
 let notas = [50, 70, 90];
@@ -421,6 +446,76 @@ while (notas.length > 0) {
 console.log(suma);
 ```
 Ten cuidado de entrar a bucles infinitos no controlados, que consumen muchos recursos de tu computadora y pueden crashearla.
+
+### Objetos y clases
+Ahora que ya conocemos sobre variables, colecciones y funciones, podemos hablar más plenamente de lo que hace un objeto y formas de construirlo. En ocasiones necesitaremos organizar nuestro código de tal forma que en una misma referencia (variable) tengamos agrupados varias propiedades pero también funciones. Ya vimos que los objetos pueden soportar multiles propiedades, pero también pueden soportar funciones. 
+
+Un objeto sirve para modelar alguna entidad, tanto en sus atributos (propiedades) o comportamiento (funciones):
+```mermaid
+classDiagram
+  class Objeto {
+    propiedad1
+    propiedad2
+    propiedad3
+    funcion1()
+    funcion2()
+  }
+```
+En el contexto de los objetos, las funciones suelen llamarse "métodos" y se acceden también con el operador punto (`.`).
+
+Para crear objetos ya vimos que podeos usar las llaves `{}`, esto se llama "objeto literal", y agregaríamos propiedades y métodos de la siguiente forma:
+```js
+const animal = {
+  especie: 'Perro',
+  edad: 4,
+  nombre: 'Lucas'.
+  esterilizado: false,
+  caminar: function() {
+    console.log('Caminando...')
+  },
+  comer() {
+    console.log('Comiendo...')
+  }
+}
+```
+Observar que:
+- Las funciones se pueden declarar usando la palabra clave `function`, pero también de forma más corta y recomendada para objetos, simplemente poniendo el nombre de la función seguido de parentesis (`nombreFuncion()`).
+- En este caso definimos dos métodos para animal: `caminar()` y `comer()`. Estas funciones solo imprimen mensajes para el ejemplo, pero se pueden hacer funciones más complicadas sin problema.
+- Para invocarlos habría que hacerlo así: `animal.caminar()` y `animal.comer()`
+
+También para definir objetos se puede usar una "función constructora" o la función `Object.create()`.
+
+Otra forma de definir funciones es usando "clases" que funcionarían como plantillas de objetos, al estilo de lenguajes programación orientadas a objetos como Java o C#. La sintaxis para usar clases es:
+
+```js
+class Animal {
+  constructor(especie, edad, nombre, esterilizado) {
+    this.especie = especie
+    this.edad = edad;
+    this.nombre = nombre;
+    this.esterilizado = esterilizado;
+  }
+
+  caminar() {
+        console.log('Caminando...')
+  }
+  comer() {
+    console.log('Comiendo...')
+  }
+}
+```
+Observar que:
+- Usamos la palabra clave `class`
+- El nombre de la clase, por convención, está en mayúscula, pues nos ayuda a diferenciar la clase del objeto
+- Usamos un método especial llamado `constructor()` que nos servirá para inicializar los valores de los nuevos objetos, que normalmente variarán. Puedes imaginar diferentes tipos de objetos de animales a partir de la clase Animal.
+
+Luego, creamos tres instancias de la clase Animal de la siguiente forma:
+```js
+const perro1 = new Animal('Perro', 4, 'Fido', true);
+const perro2 = new Animal('Perro', 1, 'Peluza', false);
+const gato1 = new Animal('Gato', 10, 'Mini', true);
+```
+Los objetos creados de esta forma heredan las propiedades y métodos de su clase, por lo que `gato1.comer()` funcionará.
 
 ## Programación web con JS
 Todo lo que vimos hasta ahora fueron conceptos de programación general, que otros lenguajes de programación también lo tienen a su forma. Ahora veremos conceptos relacionados directamente con la manipulación de una página web, el navegador y su interacción.
