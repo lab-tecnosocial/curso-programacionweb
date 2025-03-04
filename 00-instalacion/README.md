@@ -2,7 +2,7 @@
 
 ## Requisitos
 
-- Materiales
+- Herramientas
   - Computadora de escritorio o laptop, no basta celular
   - Conexión a Internet de al menos al menos 10 mpbs
 - Conocimientos
@@ -28,14 +28,14 @@
 - Instalar [Git](https://git-scm.com/) para control de versiones y abrirse una cuenta en [GitHub](https://github.com/) para sincronizar tú código, colaborar con otros desarrolladores y publicar páginas web.
 - Instalar [NodeJS](https://nodejs.org/en), para hacer correr JavaScript fuera del navegador. Cuenta además con [npm](https://www.npmjs.com/) para descargar y usar modulos de JavaScript que te serán muy útiles para desarrollar aplicaciones web sobre la base del código de otros.
 
-# Configuración
+## Configuración
 - VSCode. Puedes elegir configurar algunas funciones útiles:
   - Autoguardado: File > Auto Save
   - Formato automático al guardado: Settings > Format on save
 - Inicia sesión en VSCode con GitHub para guardar tus configuraciones y poder sincroinziar tu código local con GitHub
 
 
-# Flujos de trabajo comunes
+## Flujos de trabajo comunes
 - Por cada proyecto web
   - Crea una carpeta en tu sistema operativo
   - Abre la carpeta con VSCode

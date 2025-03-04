@@ -18,7 +18,7 @@ Observar que:
 - Existen etiquetas
   - Las etiquetas se suelen usar en pares
     - Hay una etiqueta de apertura con el nombre de la etiqueta
-    - Hay una etiqueta de cierre con una barra `\` y el nombre de la etiqueta
+    - Hay una etiqueta de cierre con una barra `/` y el nombre de la etiqueta
   - Las etiquetas se envuelven en paréntesis angulares: `<` y `>`, también conocidos como los símbolos de `menor que` y `mayor que`
 - Existe un contenido
   - Que suele ser texto normal o también como veremos más adelante puede ser otro elemento HTML
@@ -59,7 +59,7 @@ Observar que:
   - Si hay más de un atributo se los separa por un espacio
   - A diferencia de los nombres de las etiquetas HTML, los nombres de los atributos no llevan paréntesis angulares
 - Notar que hay un espacio luego del nombre de la etiqueta para escribir el primer atributo.
-- Los atributos se ponen dentro de la etiqueta de apertura, no en el contenido ni en la etiqueta de cierre. 
+- Los atributos se ubican dentro de la etiqueta de apertura, no en el contenido ni en la etiqueta de cierre. 
 
 Ejemplos típicos de atributos son:
 - Para cualquier elemento
@@ -94,7 +94,7 @@ Ejemplos típicos de atributos son:
 
 ## El árbol HTML
 
-La utilidad de HTML reside en poder combinar los elementos básicos para crear estructuras más complejas. Para ello debemos formar un "árbol" de elementos HTML, donde los elementos HTML se "anidan" (poner unos dentro de otros).
+El poder de HTML para construir documentos web consiste en la posibilidad de combinar los elementos básicos para crear estructuras más complejas. Para ello debemos formar un "árbol" de elementos HTML, donde los elementos HTML se "anidan" (se colocan unos dentro de otros).
 
 Un árbol es una estructura de organización muy común, que puedes encontrarla, por ejemplo, en tu sistema de archivos. Es una jerarquía de elementos, también llamados en este contexto como "nodos":
 
@@ -106,7 +106,7 @@ Y se puede describir con la siguiente terminología:
   - Rama: las ramificaciones que se desprenden de algún nodo.
   - Nodo interno: los nodos que no son raíz ni hojas
   - Hoja: los nodos sin descendientes
-- De árbol genealógico
+- Como un árbol genealógico
   - Ancestro
   - Descendientes
   - Ascendientes
@@ -114,7 +114,7 @@ Y se puede describir con la siguiente terminología:
   - Hijo o hijos
   - Hermano o hermanos
 
-El árbol básico de HTML es el siguiente. Deberas siempre escribir esta primera estructura:
+El árbol básico de HTML es el siguiente. Deberas siempre escribir estas etiquetas que marcan la estructura central de todo documento web:
 
 ```html
 <html>
@@ -152,7 +152,7 @@ Ya en `<body>` podemos crear un sub-arbol de diversas maneras, por ejemplo si hi
 </html>
 ```
 
-> ## Tarea
+> **Tarea**
 > - Agregar una imagen suya
 > - Agregar enlace a sus redes sociales, pero con imágenes de las redes en vez de solo texto y deben abrir el enlace en una nueva pestaña
 > - Agregar una tabla  con la primera columna que diga sus habilidades y la segunda su calificación del 1 al 10
@@ -237,7 +237,7 @@ Observar que:
 - Alrededor de los divs hemos dejado lineas en blanco, simplemente para que se vean mejor los divs. Al interprete de HTML no le importan los espacios o lineas entre los elementos HTML, solo las etiquetas. Pero a nosotros (los humanos), nos sirve como pistas visuales para que el código sea más legible.
 - Con esas clases declaradas posteriormente podemos acceder a esas partes con CSS para estilizarlas o con JS para lograr alguna interacción.
 
-Si quisiéramos identificar o agrupar una parte de una linea o contenido, tendríamos que usar la etiqueta `<span>`:
+Si quisiéramos identificar o agrupar una parte de una linea o contenido, tendríamos que usar la etiqueta `<span>` en lugar de `<div>`:
 
 ```html
 <div class="presentacion-inicial">

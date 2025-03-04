@@ -8,9 +8,10 @@ Esta es una forma de ver y modelar el mundo de forma estructurada, procesual y a
 
 Este pensamiento implica un conjunto de conceptos interrelacionados:
 
-- Descomposición y abstracción
+- Abstracción y descomposición
+- Sistematización (entradas, proceso, salidas)
 - Datos, tipos de datos y variables
-- Estructuras de datos
+- Estructuras de datos y algoritmos
 - Estructuras de control
   - Secuencia
   - Decisión
@@ -20,7 +21,7 @@ Este pensamiento implica un conjunto de conceptos interrelacionados:
 
 ## Sobre el lenguaje de programación
 
-Los conceptos anteriores deben ser expresados, en su forma, mediante lenguajes especiales: los llamados lenguajes de programación. Esto lenguajes son mucho más estrictos que los lenguajes naturales, pero como todo lenguaje tienen una semántica, sintaxis y pragmática:
+Los conceptos anteriores deben ser expresados, en su forma, mediante lenguajes especiales: los llamados lenguajes de programación. Estos lenguajes son mucho más estrictos que los lenguajes naturales, pero como todo lenguaje tienen una semántica, sintaxis y pragmática:
 
 - Semántica: se refiere al significado de los símbolos, declaraciones y expresiones de un lenguaje de programación.
 - Sintaxis: se refiere a las reglas para construir y combinar los símbolos de un lenguaje de programación.
@@ -35,16 +36,18 @@ Para aprender programación es necesario escoger algún campo de aplicación. Al
 - Desarrollo web
 - Desarrollo móvil
 - Ciencia de datos e IA
-- Desarrollo de videojuegos
+- Graficación por computadora
 - Arte computacional
+- Desarrollo de videojuegos
+
 ## Desarrollo web
 
 El desarrollo web moderno se suele dividir en:
 
 - Frontend: se refiere a las tecnologías relacionadas con la interfaz de usuario y funciones realizadas del lado del cliente (navegador). Se utilizan tecnologías como HTML, CSS y JS.
-- Backend: se refiere a las tecnologías relacionadas con la base de datos y las funciones realizadas del lado del servidor. Se usan tecnologías como Linux, MySQL, PostgreSQL, Java, Python, PHP, etc.
+- Backend: se refiere a las tecnologías de lado del servidor, como sistemas operativos, lenguajes de backend y bases de datos. Se usan tecnologías como Linux, MySQL, PostgreSQL, Java, Python, PHP, etc.
 
-Aunque también existen desarrolladores que dominan ambas especialidades y se llaman "full-stack".
+Aunque también existen desarrolladores que dominan ambas especialidades que se llaman "full-stack".
 
 ## Los lenguajes del desarrollo web
 

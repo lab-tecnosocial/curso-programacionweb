@@ -46,12 +46,14 @@ selector {
 ```
 Donde:
 - Se empieza con un selector, que apunta al elemento al que se quiere cambiar de estilo. Puede ser el nombre de la etiqueta, la clase o el id (ver siguiente sección)
-- Se agrega un bloque de declaraciones, que empieza con una llave de apertura `{` y termina con una llave de cierre `}`
-- En el bloque se agregan declaraciones de estilo separadas por punto y coma (`;`)
-- Cada declaración tiene tres partes:
+- Se agrega un bloque de declaraciones (o *ruleset*), que empieza con una llave de apertura `{` y termina con una llave de cierre `}`
+- En el bloque se agregan declaraciones de estilo (o *rules*) separadas por punto y coma (`;`)
+- Cada declaración (*rule*) tiene tres partes:
   - Propiedad: La característica visual que se quiere cambiar
   - Separador: Entre propiedad y valor, que son los dos puntos: `:`
-  - Valor: El valor específico de la propiedad que se quiera cambiar. Si es más de un valor, entonces se separa con un espacio. En ocasiones recibe funciones de la forma `funcion(a, b)`, que a su vez recibe argumentos separados por comas.
+  - Valor: El valor específico de la propiedad que se quiera cambiar. 
+    - Si es más de un valor, entonces se separa con un espacio. 
+    - En ocasiones recibe funciones de la forma `funcion(a, b)`, que a su vez recibe argumentos separados por comas.
 
 Por ejemplo:
 ```css
@@ -130,7 +132,7 @@ Aquí no se necesita usar selectores, sino que el CSS va directamente dentro de 
 ```
 ### CSS interno
 
-Aquí el CSS se pone el CSS separado de los elementos HTML, pero en el mismo archivo, con la etiqueta `<style>` dentro de la etiqueta `<head>`. Aquí se hacen uso de los selectores:
+Aquí el CSS va separado de los elementos HTML, pero en el mismo archivo, con la etiqueta `<style>` dentro de la etiqueta `<head>`. Aquí se hacen uso de los selectores:
 ```html
 <html>
   <head>
@@ -208,14 +210,14 @@ Sobre el color tenemos las siguientes propiedades:
 - Opacidad
   - `opacity`: Controla la opacidad del elemento. El valor va entre 0 y 1, pudiendo recibir valores decimales.
 
-Ahora bien, la forma de especificar el color tiene variaciones. Se puede especificar el color en al menos cuatro formas:
+Ahora bien, la forma de especificar el color tiene variaciones. Se puede especificar el color de al menos cuatro formas:
 
 - **Colores nombrados:** que vienen en forma de texto, por ejemplo: red, white, blue, black, etc. Una lista completa de colores nombrados, que son 140, puede verse [aquí](https://www.w3schools.com/cssref/css_colors.php).
 - **RGB:** significa Red, Green, Blue. Es una función que especifica esos tres parametros de colores primarios, que son enteros que van de 0 a 255. Por ejemplo, `rgb(255, 0, 0)` es el rojo
 - **Hexadecimal:** Similar al anterior, pero especificados con dos digitos hexadecimales por color `#RRGGBB`. Por ejemplo, el rojo es `#FF0000`
 - **HSL:** Una alternativa a RGB, que usa Hue (tono), Saturation (saturación) y Lightness (luminosidad). Donde tono recibe un grado entre 0 y 360 de la rueda del color, y saturación y luminosidad reciben un porcentaje de 0 a 100.
 
-Las funciones `rgb()` y `hsl` tienen una variación que incluye la opacidad (tambien llamada como 'canal alfa'): `rgba()` y `hsla()`.
+Las funciones `rgb()` y `hsl()` tienen una variación que incluye la opacidad (tambien llamada como 'canal alfa'): `rgba()` y `hsla()`.
 
 ## El módelo de caja (*box model*)
 
@@ -228,11 +230,11 @@ Esta caja tiene cuatro capas:
 Si vamos de adentro para afuera, estas cuatro capas son:
 
 - **Contenido**. Este se especifica con las propiedades `width` y `height`
+- **Relleno**. Es el espacio interno entre el contenido y el borde. Se define con la propiedad `padding`
 - **Borde**. Se define con la propiedad `border`
-- **Relleno**. Es el espacio interno a partir del borde. Se define con la propiedad `padding`
-- **Margen**. Es el espacio interno a partir del margen. Se define con la propiedad `margin`
+- **Margen**. Es el espacio externo entre la caja y las demás cajas. Se define con la propiedad `margin`
 
-Extra: contorno. Es el contorno luego del margen y se especifica con `outline`. Si bien no pertenece propiamente al box model, suele ser útil en estos casos.
+Extra: contorno. Es el contorno luego del margen y se especifica con `outline`. Si bien no pertenece propiamente al box model, suele ser útil en algunos casos.
 
 Por ejemplo, si quisieramos crear párrafos con más estilo:
 
@@ -243,7 +245,7 @@ Por ejemplo, si quisieramos crear párrafos con más estilo:
       p {
         width: 100px;
         height: 100px;
-        border: solid 2px black;
+        border: solid black 2px;
         padding: 10px;
         margin: 5px auto;
       }
@@ -378,7 +380,7 @@ background-image: linear-gradient(45deg, red 25%, yellow 75%);
 Resultado del último ejemplo:
 ![](img/degradado.png)
 
-Es posible poner más de dos colores y también hacer degradados complicados. Para eso recomendamos usar una herramienta visual como [cssgradient.io](https://cssgradient.io/) y luego de diseñar el degradado, copiar el código CSS y usarlo.
+Es posible poner más de dos colores y también hacer degradados complicados. Para eso recomendamos usar una herramienta visual como [cssgradient.io](https://cssgradient.io/) y luego de diseñar el degradado copiar el código CSS y usarlo.
 
 ### Sombras
 
@@ -555,7 +557,7 @@ Para diferenciar bien entre las posiciones `absolute` y `relative`, puedes guiar
 
 ![](img/relative-vs-absolute.png)
 
-Observa que la referencia de qué es `top`, `bottom`, `left` y `right` varía. Y ser verían de la siguiente forma:
+Observa que la referencia de qué es `top`, `bottom`, `left` y `right` varía. Y se verían de la siguiente forma:
 
 ```css
 .cuadrado {
@@ -598,7 +600,7 @@ Con ese mismo patrón, usando la combinación de `absolute` con `relative`, es p
 
 También para la propiedad `position` existen los valores `fixed` para ubicarlo en lugar fijo de la pantalla sin importar el scroll y `sticky` que permite cierto scroll y luego podemos 'pegarlo' en algun lugar de la pantalla.
 
-Una vez que apilemos varias capas de elementos HTML, en algún momento podemos querer cambiar su orden (cuán atrás o adelante está el elemento), tal como se hace en las capas de Photoshop o Illustrator. Para ello podemos usar la propiedad `z-index` que puede ser entendido como la profundidad del elemento, entre un número más bajo más bajo, y entre un número más alto más arriba:
+Una vez que apilemos varias capas de elementos HTML, en algún momento podemos querer cambiar su orden (cuán atrás o adelante está el elemento), tal como se hace en las capas de Photoshop o Illustrator. Para ello podemos usar la propiedad `z-index` que puede ser entendido como la profundidad del elemento, entre un número más bajo más debajo, y entre un número más alto más arriba:
 
 ![](img/z-index.png)
 ### Disposiciones de una dimensión con `flex`
@@ -609,7 +611,7 @@ Para ello debemos diferenciar entre:
 - El contenedor flex: normalmente un `<div>` u otro elemento padre
 - Los elementos flex: todos los elementos que están dentro del contenedor
 
-Las propiedades que veremos para que funcionen, a veces se especifican en el contenedor y otras en los elementos:
+Las propiedades que veremos para que funcionen a veces se especifican en el contenedor y otras en los elementos:
 
 ```css
 .contenedor{
@@ -701,7 +703,7 @@ Que da por resultado:
 ![](img/ejemplo-grid.png)
 
 ## Diseño responsivo con 'media queries'
-El desarrollo web antes solo se enfocaba en que tu página, sitio o app se viera bien en las pantallas de computadora. Sin embargo, ahora la mayoría de las personas acceden a la web mediante sus celulares, que tienen una pantalla mucho más pequeña, por lo que el diseño de tu web debe ser adaptativo (*responsive*).Si bien usando unidades relativas y disposiciones modernas como flex y grid se puede lograr en parte un diseño responsivo, se necesitan también otras técnicas. Aquí veremos los 'media queries'.
+El desarrollo web antes solo se enfocaba en que tu página, sitio o app se viera bien en las pantallas de computadora. Sin embargo, ahora la mayoría de las personas acceden a la web mediante sus celulares, que tienen una pantalla mucho más pequeña, por lo que el diseño de tu web debe ser adaptativo (*responsive*). Si bien usando unidades relativas y disposiciones modernas como flex y grid se puede lograr en parte un diseño responsivo, se necesitan también otras técnicas. Aquí veremos los 'media queries'.
 
 Los 'media queries' (consultas del medio), nos permiten consultar sobre el tamaño, resolución, orientación de la pantalla, entre otros. Particularmente es útil consultar ancho de la pantalla (`max-width` o `min-width`) y según eso se puede ejecutar un código especifico para ciertos tamaños de pantalla.
 
@@ -757,7 +759,7 @@ Las variables son como contenedores que nos permiten almacenar, usar y actualiza
 También es posible redefinir el valor de la variable solo para ciertos contextos (*scopes*):
 
 ## Frameworks de CSS
-Si bien hasta ahora hemos aprendido a usar CSS de forma directa, también podemos usar 'frameworks', que son  marcos de referencia preparados que nos facilitan el trabajo, y que poseen  un sistema de diseño coherente y declaraciones CSS ya escritas por otros.
+Si bien hasta ahora hemos aprendido a usar CSS de forma directa, también podemos usar 'frameworks', que son  marcos de referencia preparados que nos facilitan el trabajo, y que poseen  un sistema de diseño coherente y declaraciones CSS ya escritas por otros programadores.
 
 Entonces lo que nos queda hacer es:
 - Importar ese framework (sea con una URL pública o con un archivo local usando el elemento `<link>`)

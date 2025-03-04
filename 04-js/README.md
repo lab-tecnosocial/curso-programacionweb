@@ -39,23 +39,23 @@ Aprender JavaScript para programación web tiene típicamente dos partes:
 
 ### Variables y tipos de datos
 
-Una variable es como un contenedor etiquetado que contiene un determinado valor que puede variar. Por ejemplo:
+Una variable es como un contenedor etiquetado que contiene o hace referencia a un determinado valor que puede variar. Por ejemplo:
 ```js
 let persona = "Juan Perez";
-let pi = 3.1416;
+const PI = 3.1416;
 ```
 Notar que:
 - Para declarar una variable la primera vez es necesario usar la palabra clave `let` si la asignación cambiará en el futuro, sino cambia puedes usar `const`
-- Luego hay que poner la etiqueta, nombre o identificador de la variable, en este caso `persona`. Hay unas reglas para especificar los nombres de las variables:
+- Luego hay que poner el nombre o identificador de la variable, en este caso `persona`. Hay unas reglas para especificar los nombres de las variables:
   - Deben contener solo caracteres en inglés, no ñ, ni tildes
   - Deben ser una sola palabra, y si tienen más de una palabra se debe usar el "camel case", es decir en vez de `nombre completo`: `nombreCompleto`.
   - Los nombres de las variables deben describir el contenido. Evitar nombres de variables como `a`, `b`, etc.
 - Luego antes de darle el valor específico es necesario usar el operador de asignación que en JavaScrip es `=`. Este operador es diferente al operador de igualdad `===`. Simplemente quiere decir que se asigne el valor de la derecha al nombre de la izquierda
-- Finalmente el valor en sí. En este caso es un texto o _string_: `"Juan Perez"`. En el valor de tipo texto se puede usar cualquier carácter UTF8, se puede escribir ortográficamente en español usando tanto tildes y eñes, hasta emojis 🙂.
+- Finalmente el valor en sí. En este caso es un texto o _string_: `"Juan Perez"`. En el valor de tipo texto se puede usar cualquier carácter UTF8, se puede escribir ortográficamente en español usando tanto tildes, eñes y hasta emojis 🙂.
 
 Los valores que puedes "guardar" en las variables tienen __tipos__, que dictan qué tipo de valor son y qué operaciones pueden realizarse con ellas. Los tipos más comunes son:
 
-- `string` (cadena de caracteres): Texto. Se debe escribir envuelto en comillas dobles `" "` o simples `' '`.
+- `string` (cadena de caracteres): Texto. Se deben escribir envuelto en comillas dobles `" "` o simples `' '`.
 - `number` (número): Tanto entero (`1`, `2`, `3`), como decimal (`4.5`, `10.456`). Se escriben tal cual.
 - `boolean` (booleano): Un tipo de dato que puede aceptar solamente dos valores: `true` y `false`. Muy útil para expresiones lógicas, condicionales y bucles.
 - `undefined` (no definido): Significa que no tiene un valor asignado por defecto.
@@ -63,11 +63,11 @@ Los valores que puedes "guardar" en las variables tienen __tipos__, que dictan q
 
 Podemos usar el operador `typeof` para chequear de qué tipo es una variable o valor. 
 
-Las variables tienen un **ciclo de vida**. Nacen, las usamos, las actualizamos y son eliminadas. De forma didáctica podría usar el acrónimo CRUD que viene de las bases de datos para entender un poco mejor este comportamiento de las variables:
+Las variables tienen un **ciclo de vida**. Nacen, las usamos, las actualizamos y son eliminadas. De forma didáctica podríamos usar el acrónimo CRUD que viene de las bases de datos para entender un poco mejor este comportamiento de las variables:
 
 - **C**reate (crear): las variables se declaran o definen la primera vez que se nombran. Por ejemplo, `let miNumeroFavorito = 13;`
-- **R**ead (leer): para usar la variable ya no es necesario usar la palabra clave `let`, suficiente es usar su nombre, por ejemplo `miNumeroFavorito + 3` da como resultado 16.
-- **U**pdate (actualizar): si queremos cambiar el valor de la variable podemos reasignarle un valor, otra vez solo llamándolo y usando el operador de asignación: `miNumeroFavorito = 33`
+- **R**ead (leer): para usar la variable ya no es necesario usar la palabra clave `let`. Es suficiente usar su nombre, por ejemplo `miNumeroFavorito + 3` da como resultado 16.
+- **U**pdate (actualizar): si queremos cambiar el valor de la variable podemos reasignarle un valor, otra vez solo llamándolo y usando nuevamente el operador de asignación: `miNumeroFavorito = 33`
 - **D**elete (borrar): JavaScript se encarga de borrar de la memoria automáticamente las variables que ya no se necesitan.
 
 Las variables son muy útiles en programación porque pueden guardar datos y sus transformaciones. Se podría definir a un programa como un conjunto de instrucciones que operan sobre datos:
@@ -189,7 +189,7 @@ let coloresFavoritos = {
 notas.p2 = 75;
 coloresFavoritos.colorOpcional = "Plomo"
 // o alternativamente 
-notas.["p2"] = 75;
+notas["p2"] = 75;
 coloresFavoritos["colorOpcional"] = "Plomo"
 ```
 Observar que:
@@ -197,7 +197,7 @@ Observar que:
 - Los elementos requieren un par de `nombre: valor`, separados por comas
 - Para acceder a los objetos se usan los nombres que especificamos, no índices: `notas.p1`
 - Los nombres si son una sola palabra y no tienen caracteres especiales se pueden usar con el operador punto `.`
-- Si los nombres tienen más de una palabra o tienen un carácter especial se los puede pasar al corchete entre comillas `variable["nombre"]`
+- Si los nombres tienen más de una palabra o tienen un carácter especial se usa el corchete y el nombre entre comillas: `variable["nombre"]`
 - Recomendamos usar nombres en lo posible de una sola palabra y sin caracteres especiales para mayor facilidad de uso
 - Se actualizan igual usando los nombres
 - Es posible incluir funciones o métodos en los objetos (ver más abajo)
@@ -237,7 +237,7 @@ notas[0] += 1;
 notas[0] += 1;
 notas[0] += 1;
 ```
-Fíjate que debemos repetir cada vez la mima linea de código, y esto se complicaría más si fueran varias lineas. Esto no es eficiente. Para eso vamos a "empaquetar" ese código en una función:
+Fíjate que debemos repetir cada vez la misma linea de código, y esto se complicaría más si fueran varias lineas. Esto no es eficiente. Para eso vamos a "empaquetar" ese código en una función:
 
 ```js
 let notas = [50, 70, 90];
@@ -507,7 +507,7 @@ Otra forma es crear un objeto a partir de otro objeto prototipo con la función 
 ```js
 const animal3 = Object.create(animal);
 ```
-Otra de definir funciones es usando "clases" que funcionarían como plantillas de objetos, al estilo de lenguajes programación orientados a objetos como Java o C#. La sintaxis para usar clases es (aunque el fondo se están usando prototipos de todas formas):
+Otra de definir funciones es usando "clases" que funcionarían como plantillas de objetos, al estilo de lenguajes programación orientados a objetos como Java o C#. La sintaxis para usar clases es la siguiente (aunque el fondo se están usando prototipos de todas formas):
 
 ```js
 class Animal {
@@ -540,10 +540,10 @@ const gato1 = new Animal('Gato', 10, 'Mini', true);
 Los objetos creados de esta forma heredan las propiedades y métodos de su clase, por lo que `gato1.comer()` funcionará.
 
 ## Programación web con JS
-Todo lo que vimos hasta ahora fueron conceptos de programación general, que otros lenguajes de programación también lo tienen a su forma. Ahora veremos conceptos relacionados directamente con la manipulación de una página web, el navegador y su interacción.
+Todo lo que vimos hasta ahora fueron conceptos de programación general, que otros lenguajes de programación también lo tienen a su modo. Ahora veremos conceptos relacionados directamente con la manipulación de una página web, el navegador y su interacción.
 
 ### El DOM
-El DOM (Document Object Model) es una representación de toda la página web con sus elementos HTML y CSS pero en forma de objetos. Con el DOM y JavaScript podemos de forma programática:
+El DOM (Document Object Model) es una representación de toda la página web con sus elementos HTML y CSS pero en forma de objetos. Con el DOM y JavaScript podemos manipularlos de forma programática:
 - Crear y eliminar elementos HTML
 - Modificar atributos HTML
 - Modificar los estilos CSS
