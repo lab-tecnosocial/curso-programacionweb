@@ -7,6 +7,8 @@
   - [Agrupar elementos: divs y spans](#agrupar-elementos-divs-y-spans)
   - [Etiquetas semánticas](#etiquetas-semánticas)
 
+HTML es un lenguaje de marcado que nos permite estructurar el contenido de un documento web.
+
 ## Elementos HTML
 
 Escribir en HTML implica escribir elementos HTML. Un elemento HTML tiene la siguiente sintaxis básica:
@@ -22,7 +24,7 @@ Observar que:
   - Las etiquetas se envuelven en paréntesis angulares: `<` y `>`, también conocidos como los símbolos de `menor que` y `mayor que`
 - Existe un contenido
   - Que suele ser texto normal o también como veremos más adelante puede ser otro elemento HTML
-  - Que está envuelto o anidado por las etiquetas
+  - Que está envuelto o "anidado" por las etiquetas
 
 Ejemplos típicos de etiquetas son:
 - `<h1>`, `<h2>`, `<h3>` para encabezados de diferentes niveles
@@ -54,7 +56,7 @@ Asimismo los elementos HTML pueden tener atributos, que proveen información y c
 
 ```
 Observar que:
-- Los atributos están compuestos por pares de claves y valores asociados: `clave="valor"`. Tienen la siguiente sintaxis:
+- Los atributos están compuestos por pares de claves y valores asociados: `clave="valor"` y tienen la siguiente sintaxis:
   - Empiezan con el nombre de la clave, seguido por un símbolo de `=`, y finalmente el valor envuelto entre comillas `" "`. Todo sin espacios.
   - Si hay más de un atributo se los separa por un espacio
   - A diferencia de los nombres de las etiquetas HTML, los nombres de los atributos no llevan paréntesis angulares
@@ -100,7 +102,7 @@ Un árbol es una estructura de organización muy común, que puedes encontrarla,
 
 ![](img/arbol.png)
 
-Y se puede describir con la siguiente terminología:
+Las partes de un árbol se pueden describir, por analogía, con las siguientes terminologías:
 - Como un árbol biológico
   - Raíz: el primer nodo de donde descienden todos los demás
   - Rama: las ramificaciones que se desprenden de algún nodo.
@@ -128,7 +130,7 @@ Donde:
   - `<head>`: para incluir metadatos
   - `<body>`: aquí pondrás los elementos que quieres que se visualicen en el navegador.
 
-Ya en `<body>` podemos crear un sub-arbol de diversas maneras, por ejemplo si hicieramos un portafolio personal:
+Ya en `<body>` podemos crear un sub-arbol de diversas maneras y según tus necesidades, por ejemplo si hiciéramos un portafolio personal:
 
 ```html
 <html>
@@ -153,8 +155,8 @@ Ya en `<body>` podemos crear un sub-arbol de diversas maneras, por ejemplo si hi
 ```
 
 > **Tarea**
-> - Agregar una imagen suya
-> - Agregar enlace a sus redes sociales, pero con imágenes de las redes en vez de solo texto y deben abrir el enlace en una nueva pestaña
+> - Agregar una imagen tuya
+> - Agregar enlace a tus redes sociales, pero con imágenes de las redes en vez de solo texto y deben abrir el enlace en una nueva pestaña
 > - Agregar una tabla  con la primera columna que diga sus habilidades y la segunda su calificación del 1 al 10
 >
 > Puedes usar Google para resolver esta tarea, pero no IAs como ChatGPT.
@@ -234,7 +236,7 @@ Observar que:
   - `presentacion-inicial`
   - `informacion`
   - `contacto`
-- Alrededor de los divs hemos dejado lineas en blanco, simplemente para que se vean mejor los divs. Al interprete de HTML no le importan los espacios o lineas entre los elementos HTML, solo las etiquetas. Pero a nosotros (los humanos), nos sirve como pistas visuales para que el código sea más legible.
+- Alrededor de los divs hemos dejado lineas en blanco, simplemente para que se vean mejor los divs. Al interprete de HTML no le importan los espacios o lineas entre los elementos HTML, solo las etiquetas. Pero a nosotros (los humanos), nos sirven como pistas visuales para que el código sea más legible.
 - Con esas clases declaradas posteriormente podemos acceder a esas partes con CSS para estilizarlas o con JS para lograr alguna interacción.
 
 Si quisiéramos identificar o agrupar una parte de una linea o contenido, tendríamos que usar la etiqueta `<span>` en lugar de `<div>`:
@@ -249,7 +251,7 @@ Si quisiéramos identificar o agrupar una parte de una linea o contenido, tendr�
 En este caso, queremos poner algún estilo o interacción especial solo a la palabra 'profesional'.
 ## Etiquetas semánticas
 
-Hace un tiempo era muy común usar divs para agrupar todo tipo de cosas en HTML. Todavía se usan los divs para ello. Pero ahora para los contenedores típicos que usamos las páginas web, como los _headers_, _footers_ y demás existen etiquetas semánticas, que son más descriptivas de su contenido comparados con los divs y spans:
+Hace un tiempo era muy común usar divs para agrupar todo tipo de cosas en HTML. Todavía se usan los divs para ello. Pero ahora para los contenedores típicos que usamos las páginas web (como _headers_, _footers_, etc.) existen etiquetas semánticas, que describen mejor su contenido comparados con los divs y spans:
 
 ![](img/semantic-html.png)
 
@@ -262,6 +264,6 @@ Los más usados son:
 - `<figure>`: para elementos visuales independientes, suele envolver a los `<img>` dandole más información con `<figcaption>`
 - `<footer>`: para la información que va a pie de página
 
-[Aquí](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) puedes una lista completa de todos los elementos HTML, por si necesitas otros para estructurar tu contenido.
+[Aquí](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) puedes ver una lista completa de todos los elementos HTML, por si necesitas otros para estructurar tu contenido.
 
 [<<Anterior](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/01-introduccion) | [Siguiente >>](https://github.com/lab-tecnosocial/curso-programacionweb/tree/main/03-css)

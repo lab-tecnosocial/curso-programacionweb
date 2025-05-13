@@ -3,8 +3,8 @@
 - [CSS](#css)
   - [Sintaxis](#sintaxis)
   - [Selectores básicos](#selectores-básicos)
-    - [Selector de clases](#selector-de-clases)
     - [Selector de ids](#selector-de-ids)
+    - [Selector de clases](#selector-de-clases)
     - [Selector universal](#selector-universal)
   - [3 formas de usar CSS](#3-formas-de-usar-css)
     - [CSS en linea](#css-en-linea)
@@ -32,6 +32,7 @@
   - [Variables CSS](#variables-css)
   - [Frameworks de CSS](#frameworks-de-css)
 
+CSS es un lenguaje de estilo que nos permite ajustar la apariencia de los elementos HTML.
 
 ## Sintaxis
 
@@ -39,13 +40,14 @@ CSS se escribe de la siguiente forma:
 
 ```css
 selector {
+    /* bloque de declaraciones */
     propiedad1: valor;
     propiedad2: valor;
     propiedad3: valor;
 }
 ```
 Donde:
-- Se empieza con un selector, que apunta al elemento al que se quiere cambiar de estilo. Puede ser el nombre de la etiqueta, la clase o el id (ver siguiente sección)
+- Se empieza con un selector, que apunta al elemento o elementos que se quiere estilizar. Puede ser el nombre de la etiqueta, la clase o el id (ver siguiente sección)
 - Se agrega un bloque de declaraciones (o *ruleset*), que empieza con una llave de apertura `{` y termina con una llave de cierre `}`
 - En el bloque se agregan declaraciones de estilo (o *rules*) separadas por punto y coma (`;`)
 - Cada declaración (*rule*) tiene tres partes:
@@ -84,6 +86,18 @@ img {
   ...
 }
 ```
+### Selector de ids
+
+Para apuntar a modificar un elemento identificado. Se debe escribir el nombre del id antecedido por el símbolo de numeral (`#`):
+```css
+#titulo-principal {
+  ...
+}
+#resaltado {
+  ...
+}
+```
+
 ### Selector de clases
 
 Para apuntar a modificar clases enteras. Se debe escribir el nombre de la clase antecedido por un punto (`.`):
@@ -96,17 +110,7 @@ Para apuntar a modificar clases enteras. Se debe escribir el nombre de la clase 
 
 }
 ```
-### Selector de ids
 
-Para apuntar a modificar un elemento identificado. Se debe escribir el nombre del id antecedido por el símbolo de numeral (`#`):
-```css
-#titulo-principal {
-  ...
-}
-#resaltado {
-  ...
-}
-```
 
 ### Selector universal
 
@@ -132,7 +136,7 @@ Aquí no se necesita usar selectores, sino que el CSS va directamente dentro de 
 ```
 ### CSS interno
 
-Aquí el CSS va separado de los elementos HTML, pero en el mismo archivo, con la etiqueta `<style>` dentro de la etiqueta `<head>`. Aquí se hacen uso de los selectores:
+Aquí el CSS va separado de los elementos HTML, pero en el mismo archivo, con la etiqueta `<style>` dentro de la etiqueta `<head>`. Aquí se hace uso de los selectores:
 ```html
 <html>
   <head>
@@ -180,7 +184,7 @@ Aquí el CSS se escribe un archivo aparte, normalmente `style.css`. Para que fun
 ```
 ## Propiedades básicas de CSS
 
-Dos conjuntos de propiedades básicas muy utilizados y básicos en el tema del estilo son: la tipografía y el color.
+Dos conjuntos de propiedades básicas a la hora de añadir estilo son: la tipografía y el color.
 
 ### Tipografía
 
@@ -520,7 +524,7 @@ Este código funciona, pero la transición entre el cuadrado y el circulo es muy
 Observar que la propiedad de transición se pone en el elemento inicial y no en el hover.
 
 Ahora bien, para poder hacer animaciones simples más interesantes, podemos hacer uso de la propiedad `transform`, que puede recibir las siguientes funciones:
-- `scale()`: para modificar la escala o tamaño por algún factor (ej. 0.5, 2.0, etc.). Si recibe un valor modifica al elemento proporcionalmente. Si recibe dos valores modifica con el primero el eje X y con el segundo el eje Y.
+- `scale()`: para modificar la escala o tamaño por algún factor (ej. 0.5, 2.0, etc.). Si recibe un valor modifica al elemento proporcionalmente. Si recibe dos valores modifica el eje X y Y, respectivamente.
 - `translateX()`, `translateY()`: para mover el elemento en el eje X o Y. Si se quiere mover en diagonal se puede usar `translate(x, y)` con dos valores. En CSS, en el eje X para ir hacía la derecha se usan valores positivos y negativos para ir a la izquierda; en el eje Y, para ir hacía abajo se usan valores positivos y negativos para ir arriba. La coordenada (0, 0) es el punto de origen donde está el elemento.
 - `rotate()`: para rotar según un ángulo (ej. `45deg`)
 - `skew()`: para sesgar con algún ángulo
@@ -600,9 +604,10 @@ Con ese mismo patrón, usando la combinación de `absolute` con `relative`, es p
 
 También para la propiedad `position` existen los valores `fixed` para ubicarlo en lugar fijo de la pantalla sin importar el scroll y `sticky` que permite cierto scroll y luego podemos 'pegarlo' en algun lugar de la pantalla.
 
-Una vez que apilemos varias capas de elementos HTML, en algún momento podemos querer cambiar su orden (cuán atrás o adelante está el elemento), tal como se hace en las capas de Photoshop o Illustrator. Para ello podemos usar la propiedad `z-index` que puede ser entendido como la profundidad del elemento, entre un número más bajo más debajo, y entre un número más alto más arriba:
+Una vez que apilemos varias capas de elementos HTML, en algún momento podemos querer cambiar su orden (cuán atrás o adelante está el elemento), tal como se hace en las capas de Photoshop o Illustrator. Para ello podemos usar la propiedad `z-index` que puede ser entendido como la profundidad del elemento o eje Z, entre un número más bajo más debajo, y entre un número más alto más arriba:
 
 ![](img/z-index.png)
+
 ### Disposiciones de una dimensión con `flex`
 
 Con flex podemos alinear facilmente elementos que están en una "fila" o una "columna". En vez de hacer el posicionamiento manualmente con la propiedad `position` y `top`, `bottom`, `right` y `left`, podemos aprovechar `flex` para que la alineación se realice de forma más automática, y que incluso se ajustará por sí mismo si el tamaño de la pantalla cambia (diseño 'responsivo').

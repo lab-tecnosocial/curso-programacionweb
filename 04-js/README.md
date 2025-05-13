@@ -22,6 +22,8 @@
     - [Eventos](#eventos)
   - [Una app web completa](#una-app-web-completa)
 
+JavaScript es un lenguaje de programación que nos permite añadir interactividad a nuestro contenido.
+
 Aprender JavaScript para programación web tiene típicamente dos partes:
 
 - Aprender los fundamentos del lenguaje de programación por sí mismos
@@ -51,15 +53,15 @@ Notar que:
   - Deben ser una sola palabra, y si tienen más de una palabra se debe usar el "camel case", es decir en vez de `nombre completo`: `nombreCompleto`.
   - Los nombres de las variables deben describir el contenido. Evitar nombres de variables como `a`, `b`, etc.
 - Luego antes de darle el valor específico es necesario usar el operador de asignación que en JavaScrip es `=`. Este operador es diferente al operador de igualdad `===`. Simplemente quiere decir que se asigne el valor de la derecha al nombre de la izquierda
-- Finalmente el valor en sí. En este caso es un texto o _string_: `"Juan Perez"`. En el valor de tipo texto se puede usar cualquier carácter UTF8, se puede escribir ortográficamente en español usando tanto tildes, eñes y hasta emojis 🙂.
+- Finalmente el valor o dato en sí. En este caso es un texto o _string_: `"Juan Perez"`. En el valor de tipo texto se puede usar cualquier carácter UTF8, se puede escribir ortográficamente en español usando tanto tildes, eñes y hasta emojis 🙂.
 
 Los valores que puedes "guardar" en las variables tienen __tipos__, que dictan qué tipo de valor son y qué operaciones pueden realizarse con ellas. Los tipos más comunes son:
 
 - `string` (cadena de caracteres): Texto. Se deben escribir envuelto en comillas dobles `" "` o simples `' '`.
 - `number` (número): Tanto entero (`1`, `2`, `3`), como decimal (`4.5`, `10.456`). Se escriben tal cual.
 - `boolean` (booleano): Un tipo de dato que puede aceptar solamente dos valores: `true` y `false`. Muy útil para expresiones lógicas, condicionales y bucles.
-- `undefined` (no definido): Significa que no tiene un valor asignado por defecto.
-- `null` (nulo): Significa que no tiene valor y lo asignamos explícitamente.
+- `undefined` (no definido): Significa que no tiene un valor asignado, pero no se asigna explícitamente.
+- `null` (nulo): Significa que no tiene valor asignado, pero se asigna explícitamente.
 
 Podemos usar el operador `typeof` para chequear de qué tipo es una variable o valor. 
 
@@ -739,7 +741,7 @@ Tendrás que aplicar y combinar todo lo visto aquí, pero aquí te dejamos unas 
   - efecto con hover
 - .boton-completado
   - azul
-- .boton-completado
+- .boton-eliminado
   - rojo
 - .completado
   - texto tachado

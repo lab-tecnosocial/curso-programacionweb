@@ -10,29 +10,29 @@
   - Algebra básica
   - Lógica básica
 - Actitudes
-  - Disposición a aprender todo tipo de cosas nuevas
-  - Autodidactismo
+  - Disposición a aprender cosas nuevas y extrañas
   - Compromiso con la resolución de problemas
-  - Apreciar que hasta las cosas más pequeñas tienen un gran esfuerzo detrás
   - Atención al detalle
   - Paciencia
+  - Autodidactismo
+  
 ## Instalación
 
 - Instalar un editor de código
-  - Un editor de código es simplemente un editor de texto, pero que además posee funciones y herramientas extra para poder editar código escrito en algún lenguaje de programación, como: resaltado de sintaxis, gestión de sangrías (indentación), autocompletado de código.
+  - Un editor de código es simplemente un editor de texto. Pero además posee funciones y herramientas extra para poder editar código escrito en algún lenguaje de programación, como: resaltado de sintaxis, gestión de sangrías (indentación), autocompletado de código.
   - Además se los puede complementar con compiladores/interpretes y depuradores de código.
   - Recomendamos [VSCode](https://code.visualstudio.com/)
   - Dentro de este editor de código escribiremos HTML, CSS y JS.
 - Instalar la extensión [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
   - Sirve para interpretar el código que escribas en VSCode y se visualice en algún navegador a medida que vas modificando tu código.
 - Instalar [Git](https://git-scm.com/) para control de versiones y abrirse una cuenta en [GitHub](https://github.com/) para sincronizar tú código, colaborar con otros desarrolladores y publicar páginas web.
-- Instalar [NodeJS](https://nodejs.org/en), para hacer correr JavaScript fuera del navegador. Cuenta además con [npm](https://www.npmjs.com/) para descargar y usar modulos de JavaScript que te serán muy útiles para desarrollar aplicaciones web sobre la base del código de otros.
+- Instalar [NodeJS](https://nodejs.org/en), para hacer correr JavaScript fuera del navegador. Cuenta además con [npm](https://www.npmjs.com/) para descargar y usar módulos de JavaScript que te serán muy útiles para desarrollar aplicaciones web sobre la base del código de otros.
 
 ## Configuración
 - VSCode. Puedes elegir configurar algunas funciones útiles:
   - Autoguardado: File > Auto Save
   - Formato automático al guardado: Settings > Format on save
-- Inicia sesión en VSCode con GitHub para guardar tus configuraciones y poder sincroinziar tu código local con GitHub
+- Inicia sesión en VSCode con GitHub para guardar tus configuraciones y poder sincronizar tu código local con GitHub
 
 
 ## Flujos de trabajo comunes
